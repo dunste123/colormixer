@@ -33,6 +33,8 @@
             this.tbLightControlDste = new System.Windows.Forms.TabPage();
             this.pnlStepsDste = new System.Windows.Forms.Panel();
             this.btnAddControlDste = new System.Windows.Forms.Button();
+            this.pnlMixerDste = new System.Windows.Forms.Panel();
+            this.btnNextStepDste = new System.Windows.Forms.Button();
             this.tcMainDste.SuspendLayout();
             this.tbLightControlDste.SuspendLayout();
             this.SuspendLayout();
@@ -59,6 +61,8 @@
             // 
             // tbLightControlDste
             // 
+            this.tbLightControlDste.Controls.Add(this.btnNextStepDste);
+            this.tbLightControlDste.Controls.Add(this.pnlMixerDste);
             this.tbLightControlDste.Controls.Add(this.pnlStepsDste);
             this.tbLightControlDste.Controls.Add(this.btnAddControlDste);
             this.tbLightControlDste.Location = new System.Drawing.Point(4, 22);
@@ -74,7 +78,7 @@
             this.pnlStepsDste.AutoScroll = true;
             this.pnlStepsDste.Location = new System.Drawing.Point(126, 7);
             this.pnlStepsDste.Name = "pnlStepsDste";
-            this.pnlStepsDste.Size = new System.Drawing.Size(435, 387);
+            this.pnlStepsDste.Size = new System.Drawing.Size(468, 387);
             this.pnlStepsDste.TabIndex = 1;
             // 
             // btnAddControlDste
@@ -86,6 +90,23 @@
             this.btnAddControlDste.Text = "Add Step";
             this.btnAddControlDste.UseVisualStyleBackColor = true;
             this.btnAddControlDste.Click += new System.EventHandler(this.BtnAddControl_Click);
+            // 
+            // pnlMixerDste
+            // 
+            this.pnlMixerDste.Location = new System.Drawing.Point(600, 7);
+            this.pnlMixerDste.Name = "pnlMixerDste";
+            this.pnlMixerDste.Size = new System.Drawing.Size(407, 387);
+            this.pnlMixerDste.TabIndex = 2;
+            // 
+            // btnNextStepDste
+            // 
+            this.btnNextStepDste.Location = new System.Drawing.Point(7, 67);
+            this.btnNextStepDste.Name = "btnNextStepDste";
+            this.btnNextStepDste.Size = new System.Drawing.Size(112, 45);
+            this.btnNextStepDste.TabIndex = 3;
+            this.btnNextStepDste.Text = "Next Step";
+            this.btnNextStepDste.UseVisualStyleBackColor = true;
+            this.btnNextStepDste.Click += new System.EventHandler(this.BtnNextStepDste_Click);
             // 
             // ColorMixerV2
             // 
@@ -108,5 +129,7 @@
         private System.Windows.Forms.TabPage tbLightControlDste;
         private System.Windows.Forms.Button btnAddControlDste;
         private System.Windows.Forms.Panel pnlStepsDste;
+        private System.Windows.Forms.Panel pnlMixerDste;
+        private System.Windows.Forms.Button btnNextStepDste;
     }
 }
