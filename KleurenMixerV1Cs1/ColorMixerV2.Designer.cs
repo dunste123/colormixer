@@ -29,45 +29,53 @@
         private void InitializeComponent()
         {
             this.tcMainDste = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tpSettingsDste = new System.Windows.Forms.TabPage();
+            this.tbLightControlDste = new System.Windows.Forms.TabPage();
+            this.pnlStepsDste = new System.Windows.Forms.Panel();
             this.btnAddControlDste = new System.Windows.Forms.Button();
-            this.pnlControlsDste = new System.Windows.Forms.Panel();
             this.tcMainDste.SuspendLayout();
-            this.tabPage2.SuspendLayout();
+            this.tbLightControlDste.SuspendLayout();
             this.SuspendLayout();
             // 
             // tcMainDste
             // 
-            this.tcMainDste.Controls.Add(this.tabPage1);
-            this.tcMainDste.Controls.Add(this.tabPage2);
+            this.tcMainDste.Controls.Add(this.tpSettingsDste);
+            this.tcMainDste.Controls.Add(this.tbLightControlDste);
             this.tcMainDste.Location = new System.Drawing.Point(12, 12);
             this.tcMainDste.Name = "tcMainDste";
             this.tcMainDste.SelectedIndex = 0;
-            this.tcMainDste.Size = new System.Drawing.Size(776, 426);
+            this.tcMainDste.Size = new System.Drawing.Size(1021, 426);
             this.tcMainDste.TabIndex = 0;
             // 
-            // tabPage1
+            // tpSettingsDste
             // 
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(768, 400);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Settings";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.tpSettingsDste.Location = new System.Drawing.Point(4, 22);
+            this.tpSettingsDste.Name = "tpSettingsDste";
+            this.tpSettingsDste.Padding = new System.Windows.Forms.Padding(3);
+            this.tpSettingsDste.Size = new System.Drawing.Size(1013, 400);
+            this.tpSettingsDste.TabIndex = 0;
+            this.tpSettingsDste.Text = "Settings";
+            this.tpSettingsDste.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // tbLightControlDste
             // 
-            this.tabPage2.Controls.Add(this.pnlControlsDste);
-            this.tabPage2.Controls.Add(this.btnAddControlDste);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(768, 400);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Light control";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tbLightControlDste.Controls.Add(this.pnlStepsDste);
+            this.tbLightControlDste.Controls.Add(this.btnAddControlDste);
+            this.tbLightControlDste.Location = new System.Drawing.Point(4, 22);
+            this.tbLightControlDste.Name = "tbLightControlDste";
+            this.tbLightControlDste.Padding = new System.Windows.Forms.Padding(3);
+            this.tbLightControlDste.Size = new System.Drawing.Size(1013, 400);
+            this.tbLightControlDste.TabIndex = 1;
+            this.tbLightControlDste.Text = "Light control";
+            this.tbLightControlDste.UseVisualStyleBackColor = true;
+            // 
+            // pnlStepsDste
+            // 
+            this.pnlStepsDste.AutoScroll = true;
+            this.pnlStepsDste.Location = new System.Drawing.Point(126, 7);
+            this.pnlStepsDste.Name = "pnlStepsDste";
+            this.pnlStepsDste.Size = new System.Drawing.Size(435, 387);
+            this.pnlStepsDste.TabIndex = 1;
             // 
             // btnAddControlDste
             // 
@@ -75,28 +83,20 @@
             this.btnAddControlDste.Name = "btnAddControlDste";
             this.btnAddControlDste.Size = new System.Drawing.Size(112, 45);
             this.btnAddControlDste.TabIndex = 0;
-            this.btnAddControlDste.Text = "Add control";
+            this.btnAddControlDste.Text = "Add Step";
             this.btnAddControlDste.UseVisualStyleBackColor = true;
             this.btnAddControlDste.Click += new System.EventHandler(this.BtnAddControl_Click);
-            // 
-            // pnlControlsDste
-            // 
-            this.pnlControlsDste.AutoScroll = true;
-            this.pnlControlsDste.Location = new System.Drawing.Point(126, 7);
-            this.pnlControlsDste.Name = "pnlControlsDste";
-            this.pnlControlsDste.Size = new System.Drawing.Size(435, 387);
-            this.pnlControlsDste.TabIndex = 1;
             // 
             // ColorMixerV2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1045, 450);
             this.Controls.Add(this.tcMainDste);
             this.Name = "ColorMixerV2";
             this.Text = "ColorMixerV2";
             this.tcMainDste.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
+            this.tbLightControlDste.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -104,9 +104,9 @@
         #endregion
 
         private System.Windows.Forms.TabControl tcMainDste;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tpSettingsDste;
+        private System.Windows.Forms.TabPage tbLightControlDste;
         private System.Windows.Forms.Button btnAddControlDste;
-        private System.Windows.Forms.Panel pnlControlsDste;
+        private System.Windows.Forms.Panel pnlStepsDste;
     }
 }

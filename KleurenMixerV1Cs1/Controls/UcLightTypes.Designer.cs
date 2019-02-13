@@ -46,6 +46,7 @@
             this.btnPar56Dste.TabIndex = 0;
             this.btnPar56Dste.Text = "Par56";
             this.btnPar56Dste.UseVisualStyleBackColor = true;
+            this.btnPar56Dste.Click += new System.EventHandler(this.BtnPar56Dste_Click);
             // 
             // cbPar56Dste
             // 

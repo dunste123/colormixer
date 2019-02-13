@@ -14,5 +14,10 @@ namespace KleurenMixerV1Cs1.Controls
         {
             InitializeComponent();
         }
+
+        private void BtnPar56Dste_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Hello world");
+        }
     }
 }
