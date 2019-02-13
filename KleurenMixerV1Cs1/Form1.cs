@@ -19,12 +19,12 @@ namespace KleurenMixerV1Cs1 {
 
         private void CbboxPortSelect_SelectedIndexChanged(object sender, EventArgs e) {
             this.dmxDriver.DmxToDefault(this.cboxPortSelect.Text);
-            this.cboxTimer.Start();
-            this.cboxInterval.Text = this.cboxTimer.Interval + "";
+            this.cboxTimerDSte.Start();
+            this.cboxInterval.Text = this.cboxTimerDSte.Interval + "";
         }
 
         private void cboxInterval_SelectedIndexChanged(object sender, EventArgs e) {
-            this.cboxTimer.Interval = Convert.ToInt32(this.cboxInterval.Text);
+            this.cboxTimerDSte.Interval = Convert.ToInt32(this.cboxInterval.Text);
         }
 
         private void CboxTimer_Tick(object sender, EventArgs e) {

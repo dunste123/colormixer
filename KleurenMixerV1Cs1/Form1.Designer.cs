@@ -50,7 +50,7 @@
             this.cboxInterval = new System.Windows.Forms.ComboBox();
             this.lblPortDSte = new System.Windows.Forms.Label();
             this.lblTimingDSte = new System.Windows.Forms.Label();
-            this.cboxTimer = new System.Windows.Forms.Timer(this.components);
+            this.cboxTimerDSte = new System.Windows.Forms.Timer(this.components);
             this.pnlTimer = new System.Windows.Forms.Panel();
             this.cbStartFade = new System.Windows.Forms.CheckBox();
             this.trbStrobeDSte = new System.Windows.Forms.TrackBar();
@@ -331,9 +331,9 @@
             this.lblTimingDSte.TabIndex = 24;
             this.lblTimingDSte.Text = "Timing:";
             // 
-            // cboxTimer
+            // cboxTimerDSte
             // 
-            this.cboxTimer.Tick += new System.EventHandler(this.CboxTimer_Tick);
+            this.cboxTimerDSte.Tick += new System.EventHandler(this.CboxTimer_Tick);
             // 
             // pnlTimer
             // 
@@ -481,7 +481,7 @@
         private System.Windows.Forms.CheckBox cbGreen;
         private System.Windows.Forms.ComboBox cboxInterval;
         private System.Windows.Forms.ComboBox cboxPortSelect;
-        private System.Windows.Forms.Timer cboxTimer;
+        private System.Windows.Forms.Timer cboxTimerDSte;
         private System.Windows.Forms.CheckBox cbRed;
         private System.Windows.Forms.CheckBox cbStartFade;
         private System.Windows.Forms.Button resetBtn;
