@@ -35,6 +35,8 @@
             this.pnlMixerDste = new System.Windows.Forms.Panel();
             this.pnlStepsDste = new System.Windows.Forms.Panel();
             this.btnAddControlDste = new System.Windows.Forms.Button();
+            this.btnSaveShowDSte = new System.Windows.Forms.Button();
+            this.btnLoadShowDSte = new System.Windows.Forms.Button();
             this.tcMainDste.SuspendLayout();
             this.tbLightControlDste.SuspendLayout();
             this.SuspendLayout();
@@ -61,6 +63,8 @@
             // 
             // tbLightControlDste
             // 
+            this.tbLightControlDste.Controls.Add(this.btnLoadShowDSte);
+            this.tbLightControlDste.Controls.Add(this.btnSaveShowDSte);
             this.tbLightControlDste.Controls.Add(this.btnNextStepDste);
             this.tbLightControlDste.Controls.Add(this.pnlMixerDste);
             this.tbLightControlDste.Controls.Add(this.pnlStepsDste);
@@ -75,7 +79,7 @@
             // 
             // btnNextStepDste
             // 
-            this.btnNextStepDste.Location = new System.Drawing.Point(7, 67);
+            this.btnNextStepDste.Location = new System.Drawing.Point(7, 58);
             this.btnNextStepDste.Name = "btnNextStepDste";
             this.btnNextStepDste.Size = new System.Drawing.Size(112, 45);
             this.btnNextStepDste.TabIndex = 3;
@@ -108,6 +112,26 @@
             this.btnAddControlDste.UseVisualStyleBackColor = true;
             this.btnAddControlDste.Click += new System.EventHandler(this.BtnAddControl_Click);
             // 
+            // btnSaveShowDSte
+            // 
+            this.btnSaveShowDSte.Location = new System.Drawing.Point(7, 298);
+            this.btnSaveShowDSte.Name = "btnSaveShowDSte";
+            this.btnSaveShowDSte.Size = new System.Drawing.Size(112, 45);
+            this.btnSaveShowDSte.TabIndex = 3;
+            this.btnSaveShowDSte.Text = "Save Show";
+            this.btnSaveShowDSte.UseVisualStyleBackColor = true;
+            this.btnSaveShowDSte.Click += new System.EventHandler(this.BtnNextStepDste_Click);
+            // 
+            // btnLoadShowDSte
+            // 
+            this.btnLoadShowDSte.Location = new System.Drawing.Point(7, 349);
+            this.btnLoadShowDSte.Name = "btnLoadShowDSte";
+            this.btnLoadShowDSte.Size = new System.Drawing.Size(112, 45);
+            this.btnLoadShowDSte.TabIndex = 3;
+            this.btnLoadShowDSte.Text = "Load Show";
+            this.btnLoadShowDSte.UseVisualStyleBackColor = true;
+            this.btnLoadShowDSte.Click += new System.EventHandler(this.BtnNextStepDste_Click);
+            // 
             // ColorMixerV2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -133,5 +157,7 @@
         private System.Windows.Forms.Panel pnlStepsDste;
         private System.Windows.Forms.Panel pnlMixerDste;
         private System.Windows.Forms.Button btnNextStepDste;
+        private System.Windows.Forms.Button btnLoadShowDSte;
+        private System.Windows.Forms.Button btnSaveShowDSte;
     }
 }
