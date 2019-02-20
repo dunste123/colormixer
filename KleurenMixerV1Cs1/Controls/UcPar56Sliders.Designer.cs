@@ -37,6 +37,9 @@
             this.pbOutputColorDste = new System.Windows.Forms.PictureBox();
             this.lblStrobeDste = new System.Windows.Forms.Label();
             this.trbStrobeDste = new System.Windows.Forms.TrackBar();
+            this.btnResetDSte = new System.Windows.Forms.Button();
+            this.btnSaveSettingDSte = new System.Windows.Forms.Button();
+            this.lblStatusDSte = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.trbRedDste)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trbGreenDste)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trbBlueDste)).BeginInit();
@@ -129,10 +132,41 @@
             this.trbStrobeDste.TabIndex = 11;
             this.trbStrobeDste.TickStyle = System.Windows.Forms.TickStyle.Both;
             // 
+            // btnResetDSte
+            // 
+            this.btnResetDSte.Location = new System.Drawing.Point(297, 163);
+            this.btnResetDSte.Name = "btnResetDSte";
+            this.btnResetDSte.Size = new System.Drawing.Size(92, 58);
+            this.btnResetDSte.TabIndex = 13;
+            this.btnResetDSte.Text = "Reset";
+            this.btnResetDSte.UseVisualStyleBackColor = true;
+            this.btnResetDSte.Click += new System.EventHandler(this.BtnResetDSte_Click);
+            // 
+            // btnSaveSettingDSte
+            // 
+            this.btnSaveSettingDSte.Location = new System.Drawing.Point(15, 227);
+            this.btnSaveSettingDSte.Name = "btnSaveSettingDSte";
+            this.btnSaveSettingDSte.Size = new System.Drawing.Size(109, 62);
+            this.btnSaveSettingDSte.TabIndex = 14;
+            this.btnSaveSettingDSte.Text = "Save Setting";
+            this.btnSaveSettingDSte.UseVisualStyleBackColor = true;
+            // 
+            // lblStatusDSte
+            // 
+            this.lblStatusDSte.AutoSize = true;
+            this.lblStatusDSte.Location = new System.Drawing.Point(142, 253);
+            this.lblStatusDSte.Name = "lblStatusDSte";
+            this.lblStatusDSte.Size = new System.Drawing.Size(115, 13);
+            this.lblStatusDSte.TabIndex = 15;
+            this.lblStatusDSte.Text = "idk what this should do";
+            // 
             // UcPar56Sliders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lblStatusDSte);
+            this.Controls.Add(this.btnSaveSettingDSte);
+            this.Controls.Add(this.btnResetDSte);
             this.Controls.Add(this.lblStrobeDste);
             this.Controls.Add(this.trbStrobeDste);
             this.Controls.Add(this.pbOutputColorDste);
@@ -165,5 +199,8 @@
         private System.Windows.Forms.PictureBox pbOutputColorDste;
         private System.Windows.Forms.Label lblStrobeDste;
         private System.Windows.Forms.TrackBar trbStrobeDste;
+        private System.Windows.Forms.Button btnResetDSte;
+        private System.Windows.Forms.Button btnSaveSettingDSte;
+        private System.Windows.Forms.Label lblStatusDSte;
     }
 }

@@ -13,9 +13,31 @@ namespace KleurenMixerV1Cs1.Controls
 
         public bool Shown { get; set; }
 
+        public int RedValue {
+            get => this.trbRedDste.Value;
+            set => this.trbRedDste.Value = value;
+        }
+
+        public int GreenValue
+        {
+            get => this.trbGreenDste.Value;
+            set => this.trbGreenDste.Value = value;
+        }
+
+        public int BlueValue
+        {
+            get => this.trbBlueDste.Value;
+            set => this.trbBlueDste.Value = value;
+        }
+
+        public int StrobeValue {
+            get => this.trbStrobeDste.Value;
+            set => this.trbStrobeDste.Value = value;
+        }
+
         private void Mix()
         {
-            this.Mix(this.trbRedDste.Value, this.trbGreenDste.Value, this.trbBlueDste.Value);
+            this.Mix(this.RedValue, this.GreenValue, this.BlueValue);
         }
 
         private void Mix(int r, int g, int b)
@@ -25,6 +47,16 @@ namespace KleurenMixerV1Cs1.Controls
 
         private void TrackBarScroll(object sender, EventArgs e)
         {
+            this.Mix();
+        }
+
+        private void BtnResetDSte_Click(object sender, EventArgs e)
+        {
+            this.RedValue = 0;
+            this.GreenValue = 0;
+            this.BlueValue = 0;
+            this.StrobeValue = 0;
+
             this.Mix();
         }
     }
