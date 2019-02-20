@@ -31,10 +31,10 @@
             this.tcMainDste = new System.Windows.Forms.TabControl();
             this.tpSettingsDste = new System.Windows.Forms.TabPage();
             this.tbLightControlDste = new System.Windows.Forms.TabPage();
+            this.btnNextStepDste = new System.Windows.Forms.Button();
+            this.pnlMixerDste = new System.Windows.Forms.Panel();
             this.pnlStepsDste = new System.Windows.Forms.Panel();
             this.btnAddControlDste = new System.Windows.Forms.Button();
-            this.pnlMixerDste = new System.Windows.Forms.Panel();
-            this.btnNextStepDste = new System.Windows.Forms.Button();
             this.tcMainDste.SuspendLayout();
             this.tbLightControlDste.SuspendLayout();
             this.SuspendLayout();
@@ -73,6 +73,23 @@
             this.tbLightControlDste.Text = "Light control";
             this.tbLightControlDste.UseVisualStyleBackColor = true;
             // 
+            // btnNextStepDste
+            // 
+            this.btnNextStepDste.Location = new System.Drawing.Point(7, 67);
+            this.btnNextStepDste.Name = "btnNextStepDste";
+            this.btnNextStepDste.Size = new System.Drawing.Size(112, 45);
+            this.btnNextStepDste.TabIndex = 3;
+            this.btnNextStepDste.Text = "Next Step";
+            this.btnNextStepDste.UseVisualStyleBackColor = true;
+            this.btnNextStepDste.Click += new System.EventHandler(this.BtnNextStepDste_Click);
+            // 
+            // pnlMixerDste
+            // 
+            this.pnlMixerDste.Location = new System.Drawing.Point(600, 7);
+            this.pnlMixerDste.Name = "pnlMixerDste";
+            this.pnlMixerDste.Size = new System.Drawing.Size(407, 387);
+            this.pnlMixerDste.TabIndex = 2;
+            // 
             // pnlStepsDste
             // 
             this.pnlStepsDste.AutoScroll = true;
@@ -91,29 +108,14 @@
             this.btnAddControlDste.UseVisualStyleBackColor = true;
             this.btnAddControlDste.Click += new System.EventHandler(this.BtnAddControl_Click);
             // 
-            // pnlMixerDste
-            // 
-            this.pnlMixerDste.Location = new System.Drawing.Point(600, 7);
-            this.pnlMixerDste.Name = "pnlMixerDste";
-            this.pnlMixerDste.Size = new System.Drawing.Size(407, 387);
-            this.pnlMixerDste.TabIndex = 2;
-            // 
-            // btnNextStepDste
-            // 
-            this.btnNextStepDste.Location = new System.Drawing.Point(7, 67);
-            this.btnNextStepDste.Name = "btnNextStepDste";
-            this.btnNextStepDste.Size = new System.Drawing.Size(112, 45);
-            this.btnNextStepDste.TabIndex = 3;
-            this.btnNextStepDste.Text = "Next Step";
-            this.btnNextStepDste.UseVisualStyleBackColor = true;
-            this.btnNextStepDste.Click += new System.EventHandler(this.BtnNextStepDste_Click);
-            // 
             // ColorMixerV2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1045, 450);
             this.Controls.Add(this.tcMainDste);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "ColorMixerV2";
             this.Text = "ColorMixerV2";
             this.tcMainDste.ResumeLayout(false);
