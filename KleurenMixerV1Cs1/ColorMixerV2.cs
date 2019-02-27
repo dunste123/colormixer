@@ -1,7 +1,9 @@
 ﻿using KleurenMixerV1Cs1.Controls;
 using System;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 using static KleurenMixerV1Cs1.Controls.UcLightTypes;
 
 namespace KleurenMixerV1Cs1
@@ -22,8 +24,14 @@ namespace KleurenMixerV1Cs1
 
         private void BtnAddControl_Click(object sender, EventArgs e)
         {
-            var panel = this.pnlStepsDste;
             var lightTypes = new UcLightTypes();
+
+            this.AddLightType(lightTypes);
+        }
+
+        private void AddLightType(UcLightTypes lightTypes)
+        {
+            var panel = this.pnlStepsDste;
             var controls = panel.Controls;
             var count = controls.Count;
 
@@ -111,6 +119,32 @@ namespace KleurenMixerV1Cs1
             this.prevStep = selected.ArrayIndex;
 
             selected.BackColor = Color.GreenYellow;
+        }
+
+        private void BtnSaveShowDSte_Click(object sender, EventArgs e)
+        {
+            XmlSerializer xs = new XmlSerializer(typeof(UcLightTypes[]));
+
+            using (TextWriter textWriter = new StreamWriter(@"D:\Serialization.xml"))
+            {
+                xs.Serialize(textWriter, lightTypesArray);
+            }
+        }
+
+        private void BtnLoadShowDSte_Click(object sender, EventArgs e)
+        {
+            XmlSerializer xs = new XmlSerializer(typeof(UcLightTypes[]));
+            using (Stream fileStream = File.OpenRead(@"D:\Serialization.xml"))
+            {
+                UcLightTypes[] test = (UcLightTypes[]) xs.Deserialize(new MemoryStream(System.Text.Encoding.UTF8.GetBytes(File.ReadAllText(@"D:\Serialization.xml"))));
+
+                foreach(UcLightTypes lightTypes in test)
+                {
+                    this.AddLightType(lightTypes);
+
+                    Console.WriteLine(lightTypes.ArrayIndex);
+                }
+            }
         }
     }
 }

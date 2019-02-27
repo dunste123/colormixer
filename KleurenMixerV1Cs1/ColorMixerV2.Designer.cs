@@ -31,12 +31,12 @@
             this.tcMainDste = new System.Windows.Forms.TabControl();
             this.tpSettingsDste = new System.Windows.Forms.TabPage();
             this.tbLightControlDste = new System.Windows.Forms.TabPage();
+            this.btnLoadShowDSte = new System.Windows.Forms.Button();
+            this.btnSaveShowDSte = new System.Windows.Forms.Button();
             this.btnNextStepDste = new System.Windows.Forms.Button();
             this.pnlMixerDste = new System.Windows.Forms.Panel();
             this.pnlStepsDste = new System.Windows.Forms.Panel();
             this.btnAddControlDste = new System.Windows.Forms.Button();
-            this.btnSaveShowDSte = new System.Windows.Forms.Button();
-            this.btnLoadShowDSte = new System.Windows.Forms.Button();
             this.tcMainDste.SuspendLayout();
             this.tbLightControlDste.SuspendLayout();
             this.SuspendLayout();
@@ -77,6 +77,26 @@
             this.tbLightControlDste.Text = "Light control";
             this.tbLightControlDste.UseVisualStyleBackColor = true;
             // 
+            // btnLoadShowDSte
+            // 
+            this.btnLoadShowDSte.Location = new System.Drawing.Point(7, 349);
+            this.btnLoadShowDSte.Name = "btnLoadShowDSte";
+            this.btnLoadShowDSte.Size = new System.Drawing.Size(112, 45);
+            this.btnLoadShowDSte.TabIndex = 3;
+            this.btnLoadShowDSte.Text = "Load Show";
+            this.btnLoadShowDSte.UseVisualStyleBackColor = true;
+            this.btnLoadShowDSte.Click += new System.EventHandler(this.BtnLoadShowDSte_Click);
+            // 
+            // btnSaveShowDSte
+            // 
+            this.btnSaveShowDSte.Location = new System.Drawing.Point(7, 298);
+            this.btnSaveShowDSte.Name = "btnSaveShowDSte";
+            this.btnSaveShowDSte.Size = new System.Drawing.Size(112, 45);
+            this.btnSaveShowDSte.TabIndex = 3;
+            this.btnSaveShowDSte.Text = "Save Show";
+            this.btnSaveShowDSte.UseVisualStyleBackColor = true;
+            this.btnSaveShowDSte.Click += new System.EventHandler(this.BtnSaveShowDSte_Click);
+            // 
             // btnNextStepDste
             // 
             this.btnNextStepDste.Location = new System.Drawing.Point(7, 58);
@@ -111,26 +131,6 @@
             this.btnAddControlDste.Text = "Add Step";
             this.btnAddControlDste.UseVisualStyleBackColor = true;
             this.btnAddControlDste.Click += new System.EventHandler(this.BtnAddControl_Click);
-            // 
-            // btnSaveShowDSte
-            // 
-            this.btnSaveShowDSte.Location = new System.Drawing.Point(7, 298);
-            this.btnSaveShowDSte.Name = "btnSaveShowDSte";
-            this.btnSaveShowDSte.Size = new System.Drawing.Size(112, 45);
-            this.btnSaveShowDSte.TabIndex = 3;
-            this.btnSaveShowDSte.Text = "Save Show";
-            this.btnSaveShowDSte.UseVisualStyleBackColor = true;
-            this.btnSaveShowDSte.Click += new System.EventHandler(this.BtnNextStepDste_Click);
-            // 
-            // btnLoadShowDSte
-            // 
-            this.btnLoadShowDSte.Location = new System.Drawing.Point(7, 349);
-            this.btnLoadShowDSte.Name = "btnLoadShowDSte";
-            this.btnLoadShowDSte.Size = new System.Drawing.Size(112, 45);
-            this.btnLoadShowDSte.TabIndex = 3;
-            this.btnLoadShowDSte.Text = "Load Show";
-            this.btnLoadShowDSte.UseVisualStyleBackColor = true;
-            this.btnLoadShowDSte.Click += new System.EventHandler(this.BtnNextStepDste_Click);
             // 
             // ColorMixerV2
             // 
