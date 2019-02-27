@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using System.Text;
 using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Schema;
@@ -76,13 +78,19 @@ namespace KleurenMixerV1Cs1.Controls
                         this.ArrayIndex = reader.ReadElementContentAsInt();
                         break;
                     case "Par56Sliders":
-                        //System.Diagnostics.Debug.WriteLine(reader.ReadInnerXml());
                         var seri = new XmlSerializer(typeof(UcPar56Sliders));
+                        var val = reader.ReadInnerXml();
+                        var stream = new MemoryStream(Encoding.UTF8.GetBytes(val));
 
-                        this.Par56Sliders = (UcPar56Sliders) seri.Deserialize(new System.IO.MemoryStream(System.Text.Encoding.UTF8.GetBytes(reader.ReadInnerXml())));
+                        this.Par56Sliders = (UcPar56Sliders)seri.Deserialize(stream);
+                        break;
+                    default:
+                        reader.ReadElementContentAsString();
                         break;
                 }
             }
+
+            reader.ReadEndElement();
         }
 
         public void WriteXml(XmlWriter writer)

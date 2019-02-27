@@ -3,10 +3,11 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Schema;
+using System.Xml.Serialization;
 
 namespace KleurenMixerV1Cs1.Controls
 {
-    public partial class UcPar56Sliders : UserControl, System.Xml.Serialization.IXmlSerializable
+    public partial class UcPar56Sliders : UserControl, IXmlSerializable
     {
         public UcPar56Sliders()
         {
@@ -14,18 +15,18 @@ namespace KleurenMixerV1Cs1.Controls
         }
 
         public bool Shown { get; set; }
-
+        
         public int RedValue {
             get => this.trbRedDste.Value;
             set => this.trbRedDste.Value = value;
         }
-
+        
         public int GreenValue
         {
             get => this.trbGreenDste.Value;
             set => this.trbGreenDste.Value = value;
         }
-
+        
         public int BlueValue
         {
             get => this.trbBlueDste.Value;
@@ -75,9 +76,6 @@ namespace KleurenMixerV1Cs1.Controls
             {
                 switch (reader.LocalName)
                 {
-                    case "Shown":
-                        this.Shown = reader.ReadElementContentAsBoolean();
-                        break;
                     case "RedValue":
                         this.RedValue = reader.ReadElementContentAsInt();
                         break;
@@ -90,18 +88,19 @@ namespace KleurenMixerV1Cs1.Controls
                     case "StrobeValue":
                         this.StrobeValue = reader.ReadElementContentAsInt();
                         break;
+                    default:
+                        reader.ReadElementContentAsString();
+                        break;
                 }
             }
 
             this.Mix();
+
+            reader.ReadEndElement();
         }
 
         public void WriteXml(XmlWriter writer)
         {
-            writer.WriteStartElement("Shown");
-            writer.WriteValue(this.Shown);
-            writer.WriteEndElement();
-
             writer.WriteStartElement("RedValue");
             writer.WriteValue(this.RedValue);
             writer.WriteEndElement();

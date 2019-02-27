@@ -1,5 +1,6 @@
 ﻿using KleurenMixerV1Cs1.Controls;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
@@ -10,7 +11,7 @@ namespace KleurenMixerV1Cs1
 {
     public partial class ColorMixerV2 : Form
     {
-        private UcLightTypes[] lightTypesArray = new UcLightTypes[100];
+        private List<UcLightTypes> lightTypesArray = new List<UcLightTypes>();
         private int prevItem = -1;
         private int currentStep = -1;
         private int prevStep = -1;
@@ -53,8 +54,8 @@ namespace KleurenMixerV1Cs1
 
             lightTypes.ArrayIndex = count;
             lightTypes.SliderControlSet += OnLightTypeSliderControlChanged;
-
-            lightTypesArray[count] = lightTypes;
+            
+            lightTypesArray.Add(lightTypes);
 
             controls.Add(lightTypes);
         }
@@ -123,7 +124,7 @@ namespace KleurenMixerV1Cs1
 
         private void BtnSaveShowDSte_Click(object sender, EventArgs e)
         {
-            XmlSerializer xs = new XmlSerializer(typeof(UcLightTypes[]));
+            XmlSerializer xs = new XmlSerializer(typeof(List<UcLightTypes>));
 
             using (TextWriter textWriter = new StreamWriter(@"D:\Serialization.xml"))
             {
@@ -133,10 +134,10 @@ namespace KleurenMixerV1Cs1
 
         private void BtnLoadShowDSte_Click(object sender, EventArgs e)
         {
-            XmlSerializer xs = new XmlSerializer(typeof(UcLightTypes[]));
+            XmlSerializer xs = new XmlSerializer(typeof(List<UcLightTypes>));
             using (Stream fileStream = File.OpenRead(@"D:\Serialization.xml"))
             {
-                UcLightTypes[] test = (UcLightTypes[]) xs.Deserialize(new MemoryStream(System.Text.Encoding.UTF8.GetBytes(File.ReadAllText(@"D:\Serialization.xml"))));
+                List<UcLightTypes> test = (List<UcLightTypes>) xs.Deserialize(fileStream);
 
                 foreach(UcLightTypes lightTypes in test)
                 {
