@@ -17,7 +17,6 @@ namespace KleurenMixerV1Cs1
         private int currentStep = -1;
         private int prevStep = -1;
 
-
         private readonly int buffSize = 512;
         private readonly Dmx512UsbRs485Driver dmxDriver = new Dmx512UsbRs485Driver();
 
