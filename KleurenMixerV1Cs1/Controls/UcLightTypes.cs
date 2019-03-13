@@ -27,6 +27,12 @@ namespace KleurenMixerV1Cs1.Controls
             }
         }
 
+        public bool Par56SlidersEnabled
+        {
+            get => this.CbPar56Dste.Checked;
+            set => this.CbPar56Dste.Checked = value;
+        }
+
         public UcPar56Sliders Par56Sliders { get; set; }
 
         public void HideAllControls()
@@ -84,6 +90,9 @@ namespace KleurenMixerV1Cs1.Controls
 
                         this.Par56Sliders = (UcPar56Sliders)seri.Deserialize(stream);
                         break;
+                    case "Par56SlidersEnabled":
+                        this.Par56SlidersEnabled = reader.ReadElementContentAsBoolean();
+                        break;
                     default:
                         reader.ReadElementContentAsString();
                         break;
@@ -102,6 +111,10 @@ namespace KleurenMixerV1Cs1.Controls
             writer.WriteStartElement("Par56Sliders");
             var seri = new XmlSerializer(typeof(UcPar56Sliders));
             seri.Serialize(writer, this.Par56Sliders);
+            writer.WriteEndElement();
+
+            writer.WriteStartElement("Par56SlidersEnabled");
+            writer.WriteValue(this.Par56SlidersEnabled);
             writer.WriteEndElement();
         }
 

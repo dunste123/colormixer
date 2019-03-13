@@ -28,8 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tcMainDste = new System.Windows.Forms.TabControl();
             this.tpSettingsDste = new System.Windows.Forms.TabPage();
+            this.CbTimingDSte = new System.Windows.Forms.ComboBox();
+            this.PnlTimerDSte = new System.Windows.Forms.Panel();
+            this.CbPortDSte = new System.Windows.Forms.ComboBox();
+            this.LblTimingDste = new System.Windows.Forms.Label();
+            this.LblPortDSte = new System.Windows.Forms.Label();
             this.tbLightControlDste = new System.Windows.Forms.TabPage();
             this.btnLoadShowDSte = new System.Windows.Forms.Button();
             this.btnSaveShowDSte = new System.Windows.Forms.Button();
@@ -37,7 +43,10 @@
             this.pnlMixerDste = new System.Windows.Forms.Panel();
             this.pnlStepsDste = new System.Windows.Forms.Panel();
             this.btnAddControlDste = new System.Windows.Forms.Button();
+            this.CBoxTimerDSte = new System.Windows.Forms.Timer(this.components);
+            this.BtnClearStepDSte = new System.Windows.Forms.Button();
             this.tcMainDste.SuspendLayout();
+            this.tpSettingsDste.SuspendLayout();
             this.tbLightControlDste.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,6 +62,11 @@
             // 
             // tpSettingsDste
             // 
+            this.tpSettingsDste.Controls.Add(this.CbTimingDSte);
+            this.tpSettingsDste.Controls.Add(this.PnlTimerDSte);
+            this.tpSettingsDste.Controls.Add(this.CbPortDSte);
+            this.tpSettingsDste.Controls.Add(this.LblTimingDste);
+            this.tpSettingsDste.Controls.Add(this.LblPortDSte);
             this.tpSettingsDste.Location = new System.Drawing.Point(4, 22);
             this.tpSettingsDste.Name = "tpSettingsDste";
             this.tpSettingsDste.Padding = new System.Windows.Forms.Padding(3);
@@ -61,10 +75,65 @@
             this.tpSettingsDste.Text = "Settings";
             this.tpSettingsDste.UseVisualStyleBackColor = true;
             // 
+            // CbTimingDSte
+            // 
+            this.CbTimingDSte.FormattingEnabled = true;
+            this.CbTimingDSte.Items.AddRange(new object[] {
+            "10",
+            "25",
+            "50",
+            "100",
+            "250",
+            "500",
+            "1000"});
+            this.CbTimingDSte.Location = new System.Drawing.Point(106, 150);
+            this.CbTimingDSte.Name = "CbTimingDSte";
+            this.CbTimingDSte.Size = new System.Drawing.Size(121, 21);
+            this.CbTimingDSte.TabIndex = 28;
+            this.CbTimingDSte.TabStop = false;
+            this.CbTimingDSte.SelectedIndexChanged += new System.EventHandler(this.CbTimingDSte_SelectedIndexChanged);
+            // 
+            // PnlTimerDSte
+            // 
+            this.PnlTimerDSte.BackColor = System.Drawing.Color.White;
+            this.PnlTimerDSte.Location = new System.Drawing.Point(261, 150);
+            this.PnlTimerDSte.Name = "PnlTimerDSte";
+            this.PnlTimerDSte.Size = new System.Drawing.Size(20, 21);
+            this.PnlTimerDSte.TabIndex = 27;
+            // 
+            // CbPortDSte
+            // 
+            this.CbPortDSte.FormattingEnabled = true;
+            this.CbPortDSte.Location = new System.Drawing.Point(94, 98);
+            this.CbPortDSte.Name = "CbPortDSte";
+            this.CbPortDSte.Size = new System.Drawing.Size(121, 21);
+            this.CbPortDSte.TabIndex = 1;
+            this.CbPortDSte.Text = "Select Comport";
+            this.CbPortDSte.SelectedIndexChanged += new System.EventHandler(this.CbPortDSte_SelectedIndexChanged);
+            // 
+            // LblTimingDste
+            // 
+            this.LblTimingDste.AutoSize = true;
+            this.LblTimingDste.Location = new System.Drawing.Point(56, 150);
+            this.LblTimingDste.Name = "LblTimingDste";
+            this.LblTimingDste.Size = new System.Drawing.Size(44, 13);
+            this.LblTimingDste.TabIndex = 0;
+            this.LblTimingDste.Text = "Timing: ";
+            // 
+            // LblPortDSte
+            // 
+            this.LblPortDSte.AutoSize = true;
+            this.LblPortDSte.Location = new System.Drawing.Point(56, 98);
+            this.LblPortDSte.Name = "LblPortDSte";
+            this.LblPortDSte.Size = new System.Drawing.Size(32, 13);
+            this.LblPortDSte.TabIndex = 0;
+            this.LblPortDSte.Text = "Port: ";
+            // 
             // tbLightControlDste
             // 
             this.tbLightControlDste.Controls.Add(this.btnLoadShowDSte);
             this.tbLightControlDste.Controls.Add(this.btnSaveShowDSte);
+            this.tbLightControlDste.Controls.Add(this.BtnClearStepDSte);
             this.tbLightControlDste.Controls.Add(this.btnNextStepDste);
             this.tbLightControlDste.Controls.Add(this.pnlMixerDste);
             this.tbLightControlDste.Controls.Add(this.pnlStepsDste);
@@ -132,6 +201,20 @@
             this.btnAddControlDste.UseVisualStyleBackColor = true;
             this.btnAddControlDste.Click += new System.EventHandler(this.BtnAddControl_Click);
             // 
+            // CBoxTimerDSte
+            // 
+            this.CBoxTimerDSte.Tick += new System.EventHandler(this.CBoxTimerDSte_Tick);
+            // 
+            // BtnClearStepDSte
+            // 
+            this.BtnClearStepDSte.Location = new System.Drawing.Point(8, 109);
+            this.BtnClearStepDSte.Name = "BtnClearStepDSte";
+            this.BtnClearStepDSte.Size = new System.Drawing.Size(112, 45);
+            this.BtnClearStepDSte.TabIndex = 3;
+            this.BtnClearStepDSte.Text = "Clear Step";
+            this.BtnClearStepDSte.UseVisualStyleBackColor = true;
+            this.BtnClearStepDSte.Click += new System.EventHandler(this.BtnClearStepDSte_Click);
+            // 
             // ColorMixerV2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -142,7 +225,10 @@
             this.MaximizeBox = false;
             this.Name = "ColorMixerV2";
             this.Text = "ColorMixerV2";
+            this.Load += new System.EventHandler(this.ColorMixerV2_Load);
             this.tcMainDste.ResumeLayout(false);
+            this.tpSettingsDste.ResumeLayout(false);
+            this.tpSettingsDste.PerformLayout();
             this.tbLightControlDste.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -159,5 +245,12 @@
         private System.Windows.Forms.Button btnNextStepDste;
         private System.Windows.Forms.Button btnLoadShowDSte;
         private System.Windows.Forms.Button btnSaveShowDSte;
+        private System.Windows.Forms.Label LblPortDSte;
+        private System.Windows.Forms.Label LblTimingDste;
+        private System.Windows.Forms.ComboBox CbPortDSte;
+        private System.Windows.Forms.Panel PnlTimerDSte;
+        private System.Windows.Forms.Timer CBoxTimerDSte;
+        private System.Windows.Forms.ComboBox CbTimingDSte;
+        private System.Windows.Forms.Button BtnClearStepDSte;
     }
 }

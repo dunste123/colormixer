@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.btnPar56Dste = new System.Windows.Forms.Button();
-            this.cbPar56Dste = new System.Windows.Forms.CheckBox();
+            this.CbPar56Dste = new System.Windows.Forms.CheckBox();
             this.button1 = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.button2 = new System.Windows.Forms.Button();
@@ -49,14 +49,14 @@
             this.btnPar56Dste.UseVisualStyleBackColor = true;
             this.btnPar56Dste.Click += new System.EventHandler(this.BtnPar56Dste_Click);
             // 
-            // cbPar56Dste
+            // CbPar56Dste
             // 
-            this.cbPar56Dste.AutoSize = true;
-            this.cbPar56Dste.Location = new System.Drawing.Point(118, 24);
-            this.cbPar56Dste.Name = "cbPar56Dste";
-            this.cbPar56Dste.Size = new System.Drawing.Size(15, 14);
-            this.cbPar56Dste.TabIndex = 1;
-            this.cbPar56Dste.UseVisualStyleBackColor = true;
+            this.CbPar56Dste.AutoSize = true;
+            this.CbPar56Dste.Location = new System.Drawing.Point(118, 24);
+            this.CbPar56Dste.Name = "CbPar56Dste";
+            this.CbPar56Dste.Size = new System.Drawing.Size(15, 14);
+            this.CbPar56Dste.TabIndex = 1;
+            this.CbPar56Dste.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
@@ -129,7 +129,7 @@
             this.Controls.Add(this.checkBox3);
             this.Controls.Add(this.checkBox2);
             this.Controls.Add(this.checkBox1);
-            this.Controls.Add(this.cbPar56Dste);
+            this.Controls.Add(this.CbPar56Dste);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -144,7 +144,7 @@
         #endregion
 
         private System.Windows.Forms.Button btnPar56Dste;
-        private System.Windows.Forms.CheckBox cbPar56Dste;
+        private System.Windows.Forms.CheckBox CbPar56Dste;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Button button2;

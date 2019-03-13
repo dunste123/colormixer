@@ -146,9 +146,9 @@
             this.lblStatusDSte.AutoSize = true;
             this.lblStatusDSte.Location = new System.Drawing.Point(12, 247);
             this.lblStatusDSte.Name = "lblStatusDSte";
-            this.lblStatusDSte.Size = new System.Drawing.Size(115, 13);
+            this.lblStatusDSte.Size = new System.Drawing.Size(146, 13);
             this.lblStatusDSte.TabIndex = 15;
-            this.lblStatusDSte.Text = "idk what this should do";
+            this.lblStatusDSte.Text = "idk what this status should do";
             // 
             // UcPar56Sliders
             // 
