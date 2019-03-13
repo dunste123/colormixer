@@ -169,6 +169,8 @@ namespace KleurenMixerV1Cs1
 
             if (fld.ShowDialog() == DialogResult.OK)
             {
+                this.pnlStepsDste.Controls.Clear();
+
                 XmlSerializer xs = new XmlSerializer(typeof(List<UcLightTypes>));
                 using (Stream fileStream = File.OpenRead(fld.FileName))
                 {
