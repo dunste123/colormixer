@@ -39,12 +39,16 @@
             this.tbLightControlDste = new System.Windows.Forms.TabPage();
             this.btnLoadShowDSte = new System.Windows.Forms.Button();
             this.btnSaveShowDSte = new System.Windows.Forms.Button();
+            this.BtnClearStepDSte = new System.Windows.Forms.Button();
+            this.btnPrevStepDSte = new System.Windows.Forms.Button();
             this.btnNextStepDste = new System.Windows.Forms.Button();
             this.pnlMixerDste = new System.Windows.Forms.Panel();
             this.pnlStepsDste = new System.Windows.Forms.Panel();
             this.btnAddControlDste = new System.Windows.Forms.Button();
             this.CBoxTimerDSte = new System.Windows.Forms.Timer(this.components);
-            this.BtnClearStepDSte = new System.Windows.Forms.Button();
+            this.tmrShowStepperDSte = new System.Windows.Forms.Timer(this.components);
+            this.autoStepperLblDSte = new System.Windows.Forms.Label();
+            this.CbAutoStepCounter = new System.Windows.Forms.ComboBox();
             this.tcMainDste.SuspendLayout();
             this.tpSettingsDste.SuspendLayout();
             this.tbLightControlDste.SuspendLayout();
@@ -62,6 +66,8 @@
             // 
             // tpSettingsDste
             // 
+            this.tpSettingsDste.Controls.Add(this.CbAutoStepCounter);
+            this.tpSettingsDste.Controls.Add(this.autoStepperLblDSte);
             this.tpSettingsDste.Controls.Add(this.CbTimingDSte);
             this.tpSettingsDste.Controls.Add(this.PnlTimerDSte);
             this.tpSettingsDste.Controls.Add(this.CbPortDSte);
@@ -134,6 +140,7 @@
             this.tbLightControlDste.Controls.Add(this.btnLoadShowDSte);
             this.tbLightControlDste.Controls.Add(this.btnSaveShowDSte);
             this.tbLightControlDste.Controls.Add(this.BtnClearStepDSte);
+            this.tbLightControlDste.Controls.Add(this.btnPrevStepDSte);
             this.tbLightControlDste.Controls.Add(this.btnNextStepDste);
             this.tbLightControlDste.Controls.Add(this.pnlMixerDste);
             this.tbLightControlDste.Controls.Add(this.pnlStepsDste);
@@ -165,6 +172,26 @@
             this.btnSaveShowDSte.Text = "Save Show";
             this.btnSaveShowDSte.UseVisualStyleBackColor = true;
             this.btnSaveShowDSte.Click += new System.EventHandler(this.BtnSaveShowDSte_Click);
+            // 
+            // BtnClearStepDSte
+            // 
+            this.BtnClearStepDSte.Location = new System.Drawing.Point(6, 160);
+            this.BtnClearStepDSte.Name = "BtnClearStepDSte";
+            this.BtnClearStepDSte.Size = new System.Drawing.Size(112, 45);
+            this.BtnClearStepDSte.TabIndex = 3;
+            this.BtnClearStepDSte.Text = "Clear Step";
+            this.BtnClearStepDSte.UseVisualStyleBackColor = true;
+            this.BtnClearStepDSte.Click += new System.EventHandler(this.BtnClearStepDSte_Click);
+            // 
+            // btnPrevStepDSte
+            // 
+            this.btnPrevStepDSte.Location = new System.Drawing.Point(6, 109);
+            this.btnPrevStepDSte.Name = "btnPrevStepDSte";
+            this.btnPrevStepDSte.Size = new System.Drawing.Size(112, 45);
+            this.btnPrevStepDSte.TabIndex = 3;
+            this.btnPrevStepDSte.Text = "Prev Step";
+            this.btnPrevStepDSte.UseVisualStyleBackColor = true;
+            this.btnPrevStepDSte.Click += new System.EventHandler(this.BtnPrevStepDSte_Click);
             // 
             // btnNextStepDste
             // 
@@ -205,15 +232,25 @@
             // 
             this.CBoxTimerDSte.Tick += new System.EventHandler(this.CBoxTimerDSte_Tick);
             // 
-            // BtnClearStepDSte
+            // autoStepperLblDSte
             // 
-            this.BtnClearStepDSte.Location = new System.Drawing.Point(8, 109);
-            this.BtnClearStepDSte.Name = "BtnClearStepDSte";
-            this.BtnClearStepDSte.Size = new System.Drawing.Size(112, 45);
-            this.BtnClearStepDSte.TabIndex = 3;
-            this.BtnClearStepDSte.Text = "Clear Step";
-            this.BtnClearStepDSte.UseVisualStyleBackColor = true;
-            this.BtnClearStepDSte.Click += new System.EventHandler(this.BtnClearStepDSte_Click);
+            this.autoStepperLblDSte.AutoSize = true;
+            this.autoStepperLblDSte.Location = new System.Drawing.Point(507, 97);
+            this.autoStepperLblDSte.Name = "autoStepperLblDSte";
+            this.autoStepperLblDSte.Size = new System.Drawing.Size(72, 13);
+            this.autoStepperLblDSte.TabIndex = 29;
+            this.autoStepperLblDSte.Text = "Audo Stepper";
+            // 
+            // CbAutoStepCounter
+            // 
+            this.CbAutoStepCounter.FormattingEnabled = true;
+            this.CbAutoStepCounter.Items.AddRange(new object[] {
+            "off"});
+            this.CbAutoStepCounter.Location = new System.Drawing.Point(585, 94);
+            this.CbAutoStepCounter.Name = "CbAutoStepCounter";
+            this.CbAutoStepCounter.Size = new System.Drawing.Size(121, 21);
+            this.CbAutoStepCounter.TabIndex = 30;
+            this.CbAutoStepCounter.Text = "Off";
             // 
             // ColorMixerV2
             // 
@@ -252,5 +289,9 @@
         private System.Windows.Forms.Timer CBoxTimerDSte;
         private System.Windows.Forms.ComboBox CbTimingDSte;
         private System.Windows.Forms.Button BtnClearStepDSte;
+        private System.Windows.Forms.Button btnPrevStepDSte;
+        private System.Windows.Forms.Label autoStepperLblDSte;
+        private System.Windows.Forms.Timer tmrShowStepperDSte;
+        private System.Windows.Forms.ComboBox CbAutoStepCounter;
     }
 }

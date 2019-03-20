@@ -64,6 +64,8 @@ namespace KleurenMixerV1Cs1
             lightTypesArray.Add(lightTypes);
 
             controls.Add(lightTypes);
+
+            this.CheckStepsForAutoStep();
         }
 
         public void OnLightTypeSliderControlChanged(object sender, LightTypeEventArgs e)
@@ -126,6 +128,43 @@ namespace KleurenMixerV1Cs1
             selected.BackColor = Color.GreenYellow;
         }
 
+        private void BtnPrevStepDSte_Click(object sender, EventArgs e)
+        {
+            this.currentStep--;
+
+            if (this.currentStep < 0)
+            {
+                this.currentStep = this.lightTypesArray.Count - 1;
+            }
+
+            var selected = this.GetSelectedLightTypeOrNull(true);
+
+            if (selected == null && this.currentStep == 0)
+            {
+                return;
+            }
+
+            if (selected == null)
+            {
+                this.currentStep = -1;
+                this.BtnPrevStepDSte_Click(sender, e);
+
+                return;
+            }
+
+            if (this.prevStep > -1)
+            {
+                var prev = this.lightTypesArray[this.prevStep];
+
+                prev.BackColor = this.GetColorForStep(prev.ArrayIndex);
+            }
+
+            this.prevStep = selected.ArrayIndex;
+
+            selected.BackColor = Color.GreenYellow;
+
+        }
+
         private void BtnClearStepDSte_Click(object sender, EventArgs e)
         {
             var selected = this.GetSelectedLightTypeOrNull();
@@ -183,6 +222,8 @@ namespace KleurenMixerV1Cs1
                         Console.WriteLine(lightTypes.ArrayIndex);
                     }
                 }
+
+                this.CheckStepsForAutoStep();
             }
         }
         #endregion
@@ -267,14 +308,7 @@ namespace KleurenMixerV1Cs1
         #region utils
         private Color GetColorForStep(int index)
         {
-            if (index % 2 == 0)
-            {
-                return Color.DarkOrange;
-            }
-            else
-            {
-                return Color.CornflowerBlue;
-            }
+            return index % 2 == 0 ? Color.DarkOrange : Color.CornflowerBlue;
         }
 
         private UcLightTypes GetSelectedLightTypeOrNull()
@@ -295,6 +329,24 @@ namespace KleurenMixerV1Cs1
             }
 
             return this.lightTypesArray[this.currentStep];
+        }
+
+        private void CheckStepsForAutoStep()
+        {
+            var count = this.lightTypesArray.Count;
+            var box = this.CbAutoStepCounter;
+
+            box.Items.Clear();
+            box.Items.Add("Off");
+
+            if (count > 1)
+            {
+
+                for (int i = 1; i <= 5; i++)
+                {
+                    box.Items.Add(i);
+                }
+            }
         }
         #endregion
     }
