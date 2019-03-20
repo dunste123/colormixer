@@ -94,38 +94,7 @@ namespace KleurenMixerV1Cs1
 
         private void BtnNextStepDste_Click(object sender, EventArgs e)
         {
-            this.currentStep++;
-
-            if (this.currentStep >= this.lightTypesArray.Count)
-            {
-                this.currentStep = 0;
-            }
-
-            var selected = this.GetSelectedLightTypeOrNull(true);
-
-            if (selected == null && this.currentStep == 0)
-            {
-                return;
-            }
-
-            if (selected == null)
-            {
-                this.currentStep = -1;
-                this.BtnNextStepDste_Click(sender, e);
-
-                return;
-            }
-
-            if (this.prevStep > -1)
-            {
-                var prev = this.lightTypesArray[this.prevStep];
-
-                prev.BackColor = this.GetColorForStep(prev.ArrayIndex);
-            }
-
-            this.prevStep = selected.ArrayIndex;
-
-            selected.BackColor = Color.GreenYellow;
+            this.NextStep();
         }
 
         private void BtnPrevStepDSte_Click(object sender, EventArgs e)
@@ -226,6 +195,16 @@ namespace KleurenMixerV1Cs1
                 this.CheckStepsForAutoStep();
             }
         }
+
+        private void BtnStartAutoDSte_Click(object sender, EventArgs e)
+        {
+            this.tmrShowStepperDSte.Start();
+        }
+
+        private void BtnStopAutoDSte_Click(object sender, EventArgs e)
+        {
+            this.tmrShowStepperDSte.Stop();
+        }
         #endregion
 
         #region drop down handlers
@@ -239,6 +218,23 @@ namespace KleurenMixerV1Cs1
             this.dmxDriver.DmxToDefault(this.CbPortDSte.Text);
             this.CBoxTimerDSte.Start();
             this.CbTimingDSte.Text = this.CBoxTimerDSte.Interval + "";
+        }
+
+        private void CbAutoStepCounter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var text = this.CbAutoStepCounter.Text.ToLower();
+
+            if (text == "off")
+            {
+                this.tmrShowStepperDSte.Stop();
+                this.pnlShowStepper.BackColor = Color.White;
+            }
+            else
+            {
+                var interval = Double.Parse(text) * 1000;
+                this.tmrShowStepperDSte.Interval = (int) interval;
+                this.tmrShowStepperDSte.Start();
+            }
         }
         #endregion
 
@@ -303,6 +299,22 @@ namespace KleurenMixerV1Cs1
                 //}
             }
         }
+
+        // Auto stepper
+
+        private void tmrShowStepperDSte_Tick(object sender, EventArgs e)
+        {
+            if (this.pnlShowStepper.BackColor == Color.White)
+            {
+                this.pnlShowStepper.BackColor = Color.Lime;
+            }
+            else
+            {
+                this.pnlShowStepper.BackColor = Color.White;
+            }
+
+            this.NextStep();
+        }
         #endregion
 
         #region utils
@@ -342,11 +354,46 @@ namespace KleurenMixerV1Cs1
             if (count > 1)
             {
 
-                for (int i = 1; i <= 5; i++)
+                for (double i = 0.1D; i <= 1D; i = Math.Round(i + 0.1, 1, MidpointRounding.AwayFromZero))
                 {
                     box.Items.Add(i);
                 }
             }
+        }
+
+        private void NextStep() {
+            this.currentStep++;
+
+            if (this.currentStep >= this.lightTypesArray.Count)
+            {
+                this.currentStep = 0;
+            }
+
+            var selected = this.GetSelectedLightTypeOrNull(true);
+
+            if (selected == null && this.currentStep == 0)
+            {
+                return;
+            }
+
+            if (selected == null)
+            {
+                this.currentStep = -1;
+                this.NextStep();
+
+                return;
+            }
+
+            if (this.prevStep > -1)
+            {
+                var prev = this.lightTypesArray[this.prevStep];
+
+                prev.BackColor = this.GetColorForStep(prev.ArrayIndex);
+            }
+
+            this.prevStep = selected.ArrayIndex;
+
+            selected.BackColor = Color.GreenYellow;
         }
         #endregion
     }

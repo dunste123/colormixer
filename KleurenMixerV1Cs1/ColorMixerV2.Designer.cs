@@ -49,6 +49,9 @@
             this.tmrShowStepperDSte = new System.Windows.Forms.Timer(this.components);
             this.autoStepperLblDSte = new System.Windows.Forms.Label();
             this.CbAutoStepCounter = new System.Windows.Forms.ComboBox();
+            this.pnlShowStepper = new System.Windows.Forms.Panel();
+            this.btnStartAutoDSte = new System.Windows.Forms.Button();
+            this.btnStopAutoDSte = new System.Windows.Forms.Button();
             this.tcMainDste.SuspendLayout();
             this.tpSettingsDste.SuspendLayout();
             this.tbLightControlDste.SuspendLayout();
@@ -69,6 +72,7 @@
             this.tpSettingsDste.Controls.Add(this.CbAutoStepCounter);
             this.tpSettingsDste.Controls.Add(this.autoStepperLblDSte);
             this.tpSettingsDste.Controls.Add(this.CbTimingDSte);
+            this.tpSettingsDste.Controls.Add(this.pnlShowStepper);
             this.tpSettingsDste.Controls.Add(this.PnlTimerDSte);
             this.tpSettingsDste.Controls.Add(this.CbPortDSte);
             this.tpSettingsDste.Controls.Add(this.LblTimingDste);
@@ -139,6 +143,8 @@
             // 
             this.tbLightControlDste.Controls.Add(this.btnLoadShowDSte);
             this.tbLightControlDste.Controls.Add(this.btnSaveShowDSte);
+            this.tbLightControlDste.Controls.Add(this.btnStopAutoDSte);
+            this.tbLightControlDste.Controls.Add(this.btnStartAutoDSte);
             this.tbLightControlDste.Controls.Add(this.BtnClearStepDSte);
             this.tbLightControlDste.Controls.Add(this.btnPrevStepDSte);
             this.tbLightControlDste.Controls.Add(this.btnNextStepDste);
@@ -232,6 +238,10 @@
             // 
             this.CBoxTimerDSte.Tick += new System.EventHandler(this.CBoxTimerDSte_Tick);
             // 
+            // tmrShowStepperDSte
+            // 
+            this.tmrShowStepperDSte.Tick += new System.EventHandler(this.tmrShowStepperDSte_Tick);
+            // 
             // autoStepperLblDSte
             // 
             this.autoStepperLblDSte.AutoSize = true;
@@ -251,6 +261,35 @@
             this.CbAutoStepCounter.Size = new System.Drawing.Size(121, 21);
             this.CbAutoStepCounter.TabIndex = 30;
             this.CbAutoStepCounter.Text = "Off";
+            this.CbAutoStepCounter.SelectedIndexChanged += new System.EventHandler(this.CbAutoStepCounter_SelectedIndexChanged);
+            // 
+            // pnlShowStepper
+            // 
+            this.pnlShowStepper.BackColor = System.Drawing.Color.White;
+            this.pnlShowStepper.Location = new System.Drawing.Point(727, 94);
+            this.pnlShowStepper.Name = "pnlShowStepper";
+            this.pnlShowStepper.Size = new System.Drawing.Size(20, 21);
+            this.pnlShowStepper.TabIndex = 27;
+            // 
+            // btnStartAutoDSte
+            // 
+            this.btnStartAutoDSte.Location = new System.Drawing.Point(6, 211);
+            this.btnStartAutoDSte.Name = "btnStartAutoDSte";
+            this.btnStartAutoDSte.Size = new System.Drawing.Size(56, 45);
+            this.btnStartAutoDSte.TabIndex = 3;
+            this.btnStartAutoDSte.Text = "Start Auto";
+            this.btnStartAutoDSte.UseVisualStyleBackColor = true;
+            this.btnStartAutoDSte.Click += new System.EventHandler(this.BtnStartAutoDSte_Click);
+            // 
+            // btnStopAutoDSte
+            // 
+            this.btnStopAutoDSte.Location = new System.Drawing.Point(62, 211);
+            this.btnStopAutoDSte.Name = "btnStopAutoDSte";
+            this.btnStopAutoDSte.Size = new System.Drawing.Size(56, 45);
+            this.btnStopAutoDSte.TabIndex = 3;
+            this.btnStopAutoDSte.Text = "Stop Auto";
+            this.btnStopAutoDSte.UseVisualStyleBackColor = true;
+            this.btnStopAutoDSte.Click += new System.EventHandler(this.BtnStopAutoDSte_Click);
             // 
             // ColorMixerV2
             // 
@@ -293,5 +332,8 @@
         private System.Windows.Forms.Label autoStepperLblDSte;
         private System.Windows.Forms.Timer tmrShowStepperDSte;
         private System.Windows.Forms.ComboBox CbAutoStepCounter;
+        private System.Windows.Forms.Panel pnlShowStepper;
+        private System.Windows.Forms.Button btnStopAutoDSte;
+        private System.Windows.Forms.Button btnStartAutoDSte;
     }
 }
