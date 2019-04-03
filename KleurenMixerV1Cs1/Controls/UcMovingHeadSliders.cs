@@ -1,45 +1,62 @@
 ﻿using System;
-using System.Drawing;
-using System.Windows.Forms;
-using System.Xml;
-using System.Xml.Schema;
-using System.Xml.Serialization;
 
+/**
+ * https://www.bax-shop.nl/downloads/products/9000-0004-8917/ayra_ero_540_led_rgb_movinghead_manual.pdf
+ */
 namespace KleurenMixerV1Cs1.Controls
 {
-    public partial class UcMovingHeadSliders: UserControl, IXmlSerializable
+    public partial class UcMovingHeadSliders: LightSerializerDSte 
     {
+        private static readonly int[] _dmxRange = { 7, 12 };
+
         public UcMovingHeadSliders()
         {
             InitializeComponent();
         }
 
+        public override int[] GetDMXRange()
+        {
+            return _dmxRange;
+        }
+
+        public override object[][] GetDMXValues()
+        {
+            return new object[6][] {
+                new object[2] { 7,  this.XAxisDMXValue },
+                new object[2] { 8,  this.YAxisDMXValue },
+                new object[2] { 9,  this.DimmerStrobeDMXValue },
+                new object[2] { 10, this.ColorDMXValue },
+                new object[2] { 11, this.GoboDMXValue },
+                new object[2] { 12, 0 },
+            };
+        }
+
         public bool Shown { get; set; }
         
-        public int XAxis {
+        public int XAxisDMXValue {
             get => this.trbXDSte.Value;
             set => this.trbXDSte.Value = value;
         }
         
-        public int YAxis
+        public int YAxisDMXValue
         {
             get => this.trbYDSte.Value;
             set => this.trbYDSte.Value = value;
         }
         
-        public int DimmerStrobe
+        public int DimmerStrobeDMXValue
         {
             get => this.trbDmStrbDSte.Value;
             set => this.trbDmStrbDSte.Value = value;
         }
 
-        public int Color
+        public int ColorDMXValue
         {
             get => this.trbColorDSte.Value;
             set => this.trbColorDSte.Value = value;
         }
 
-        public int Gobo {
+        public int GoboDMXValue {
             get => this.trbGoboDSte.Value;
             set => this.trbGoboDSte.Value = value;
         }
@@ -47,71 +64,11 @@ namespace KleurenMixerV1Cs1.Controls
 
         private void BtnResetDSte_Click(object sender, EventArgs e)
         {
-            this.XAxis = 0;
-            this.YAxis = 0;
-            this.DimmerStrobe = 0;
-            this.Color = 0;
-            this.Gobo = 0;
-        }
-
-        public XmlSchema GetSchema()
-        {
-            return null;
-        }
-
-        public void ReadXml(XmlReader reader)
-        {
-            reader.ReadStartElement("UcMovingHeadSliders");
-
-            while (reader.IsStartElement())
-            {
-                switch (reader.LocalName)
-                {
-                    case "XAxis":
-                        this.XAxis = reader.ReadElementContentAsInt();
-                        break;
-                    case "YAxis":
-                        this.YAxis = reader.ReadElementContentAsInt();
-                        break;
-                    case "DimmerStrobe":
-                        this.DimmerStrobe = reader.ReadElementContentAsInt();
-                        break;
-                    case "Color":
-                        this.Color = reader.ReadElementContentAsInt();
-                        break;
-                    case "Gobo":
-                        this.Gobo = reader.ReadElementContentAsInt();
-                        break;
-                    default:
-                        reader.ReadElementContentAsString();
-                        break;
-                }
-            }
-
-            reader.ReadEndElement();
-        }
-
-        public void WriteXml(XmlWriter writer)
-        {
-            writer.WriteStartElement("XAxis");
-            writer.WriteValue(this.XAxis);
-            writer.WriteEndElement();
-
-            writer.WriteStartElement("YAxis");
-            writer.WriteValue(this.YAxis);
-            writer.WriteEndElement();
-
-            writer.WriteStartElement("DimmerStrobe");
-            writer.WriteValue(this.DimmerStrobe);
-            writer.WriteEndElement();
-
-            writer.WriteStartElement("Color");
-            writer.WriteValue(this.Color);
-            writer.WriteEndElement();
-
-            writer.WriteStartElement("Gobo");
-            writer.WriteValue(this.Gobo);
-            writer.WriteEndElement();
+            this.XAxisDMXValue = 0;
+            this.YAxisDMXValue = 0;
+            this.DimmerStrobeDMXValue = 0;
+            this.ColorDMXValue = 0;
+            this.GoboDMXValue = 0;
         }
     }
 }

@@ -1,46 +1,66 @@
 ﻿using System;
 using System.Drawing;
-using System.Windows.Forms;
-using System.Xml;
-using System.Xml.Schema;
-using System.Xml.Serialization;
 
+/**
+ * https://manuals.coolblue.nl/a1/showtec-led-par-56-short-eco.pdf
+ */
 namespace KleurenMixerV1Cs1.Controls
 {
-    public partial class UcPar56Sliders : UserControl, IXmlSerializable
+    public partial class UcPar56Sliders : LightSerializerDSte 
     {
+        private static readonly int[] _dmxRange = { 1, 6 };
+        
         public UcPar56Sliders()
         {
             InitializeComponent();
         }
 
+        public override int[] GetDMXRange()
+        {
+            return _dmxRange;
+        }
+
+        public override object[][] GetDMXValues()
+        {
+            return new object[6][] {
+                new object[2] { 1, this.RedDMXValue },
+                new object[2] { 2, this.GreenDMXValue },
+                new object[2] { 3, this.BlueDMXValue },
+                new object[2] { 4, 0 },
+                new object[2] { 5, this.StrobeDMXValue },
+                new object[2] { 6, 0 },
+            };
+        }
+
         public bool Shown { get; set; }
-        
-        public int RedValue {
+
+        public int RedDMXValue
+        {
             get => this.trbRedDste.Value;
             set => this.trbRedDste.Value = value;
         }
-        
-        public int GreenValue
+
+        public int GreenDMXValue
         {
             get => this.trbGreenDste.Value;
             set => this.trbGreenDste.Value = value;
         }
-        
-        public int BlueValue
+
+        public int BlueDMXValue
         {
             get => this.trbBlueDste.Value;
             set => this.trbBlueDste.Value = value;
         }
 
-        public int StrobeValue {
+        public int StrobeDMXValue
+        {
             get => this.trbStrobeDste.Value;
             set => this.trbStrobeDste.Value = value;
         }
 
         private void Mix()
         {
-            this.Mix(this.RedValue, this.GreenValue, this.BlueValue);
+            this.Mix(this.RedDMXValue, this.GreenDMXValue, this.BlueDMXValue);
         }
 
         private void Mix(int r, int g, int b)
@@ -55,67 +75,17 @@ namespace KleurenMixerV1Cs1.Controls
 
         private void BtnResetDSte_Click(object sender, EventArgs e)
         {
-            this.RedValue = 0;
-            this.GreenValue = 0;
-            this.BlueValue = 0;
-            this.StrobeValue = 0;
+            this.RedDMXValue = 0;
+            this.GreenDMXValue = 0;
+            this.BlueDMXValue = 0;
+            this.StrobeDMXValue = 0;
 
             this.Mix();
         }
 
-        public XmlSchema GetSchema()
+        override public void AfterReading()
         {
-            return null;
-        }
-
-        public void ReadXml(XmlReader reader)
-        {
-            reader.ReadStartElement("UcPar56Sliders");
-
-            while (reader.IsStartElement())
-            {
-                switch (reader.LocalName)
-                {
-                    case "RedValue":
-                        this.RedValue = reader.ReadElementContentAsInt();
-                        break;
-                    case "GreenValue":
-                        this.GreenValue = reader.ReadElementContentAsInt();
-                        break;
-                    case "BlueValue":
-                        this.BlueValue = reader.ReadElementContentAsInt();
-                        break;
-                    case "StrobeValue":
-                        this.StrobeValue = reader.ReadElementContentAsInt();
-                        break;
-                    default:
-                        reader.ReadElementContentAsString();
-                        break;
-                }
-            }
-
             this.Mix();
-
-            reader.ReadEndElement();
-        }
-
-        public void WriteXml(XmlWriter writer)
-        {
-            writer.WriteStartElement("RedValue");
-            writer.WriteValue(this.RedValue);
-            writer.WriteEndElement();
-
-            writer.WriteStartElement("GreenValue");
-            writer.WriteValue(this.GreenValue);
-            writer.WriteEndElement();
-
-            writer.WriteStartElement("BlueValue");
-            writer.WriteValue(this.BlueValue);
-            writer.WriteEndElement();
-
-            writer.WriteStartElement("StrobeValue");
-            writer.WriteValue(this.StrobeValue);
-            writer.WriteEndElement();
         }
     }
 }

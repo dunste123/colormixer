@@ -24,7 +24,7 @@ namespace KleurenMixerV1Cs1
         {
             InitializeComponent();
 
-            //this.tcMainDste.SelectedTab = this.tbLightControlDste;
+            this.tcMainDste.SelectedTab = this.tbLightControlDste;
         }
 
         private void ColorMixerV2_Load(object sender, EventArgs e)
@@ -69,10 +69,10 @@ namespace KleurenMixerV1Cs1
                 var newPar = new UcPar56Sliders();
 
                 newPar.Shown = false;
-                newPar.RedValue = type.Par56Sliders.RedValue;
-                newPar.GreenValue = type.Par56Sliders.GreenValue;
-                newPar.BlueValue = type.Par56Sliders.BlueValue;
-                newPar.StrobeValue = type.Par56Sliders.StrobeValue;
+                newPar.RedDMXValue = type.Par56Sliders.RedDMXValue;
+                newPar.GreenDMXValue = type.Par56Sliders.GreenDMXValue;
+                newPar.BlueDMXValue = type.Par56Sliders.BlueDMXValue;
+                newPar.StrobeDMXValue = type.Par56Sliders.StrobeDMXValue;
 
                 lightTypes.Par56Sliders = newPar;
             }
@@ -84,11 +84,11 @@ namespace KleurenMixerV1Cs1
                 var newHead = new UcMovingHeadSliders();
 
                 newHead.Shown = false;
-                newHead.XAxis = type.MovingHeadSliders.XAxis;
-                newHead.YAxis = type.MovingHeadSliders.YAxis;
-                newHead.DimmerStrobe = type.MovingHeadSliders.DimmerStrobe;
-                newHead.Color = type.MovingHeadSliders.Color;
-                newHead.Gobo = type.MovingHeadSliders.Gobo;
+                newHead.XAxisDMXValue = type.MovingHeadSliders.XAxisDMXValue;
+                newHead.YAxisDMXValue = type.MovingHeadSliders.YAxisDMXValue;
+                newHead.DimmerStrobeDMXValue = type.MovingHeadSliders.DimmerStrobeDMXValue;
+                newHead.ColorDMXValue = type.MovingHeadSliders.ColorDMXValue;
+                newHead.GoboDMXValue = type.MovingHeadSliders.GoboDMXValue;
 
                 lightTypes.MovingHeadSliders = newHead;
             }
@@ -315,7 +315,7 @@ namespace KleurenMixerV1Cs1
 
             if (item == null)
             {
-                for (int i = 0; i < this.buffSize; i++)
+                for (int i = 1; i < this.buffSize; i++)
                 {
                     this.dmxDriver.DmxLoadBuffer(i, 0, this.buffSize);
                 }
@@ -325,45 +325,25 @@ namespace KleurenMixerV1Cs1
 
             if (item.Par56SlidersEnabled)
             {
-                var selectedPar56Sliders = item.Par56Sliders;
-
-                /**
-                 * https://manuals.coolblue.nl/a1/showtec-led-par-56-short-eco.pdf
-                 */
-
-                this.dmxDriver.DmxLoadBuffer(1, (byte)selectedPar56Sliders.RedValue, this.buffSize);
-                this.dmxDriver.DmxLoadBuffer(2, (byte)selectedPar56Sliders.GreenValue, this.buffSize);
-                this.dmxDriver.DmxLoadBuffer(3, (byte)selectedPar56Sliders.BlueValue, this.buffSize);
-
-                // color stepper val = color
-                this.dmxDriver.DmxLoadBuffer(4, 0, this.buffSize);
-
-                // shutter = 0 - 255
-                this.dmxDriver.DmxLoadBuffer(5, (byte)selectedPar56Sliders.StrobeValue, this.buffSize);
-
-                // fader val = fade speed
-                this.dmxDriver.DmxLoadBuffer(6, 0, this.buffSize);
-
-                //if (this.cbStartFade.Checked)
-                //{
-                //    this.dmxDriver.DmxLoadBuffer(6, (byte)this.trbFadeSpeedDSte.Value, this.buffSize);
-                //}
+                this.SendDMXCommands(item.Par56Sliders);
             }
 
             if (item.MovingHeadSlidersEnabled)
             {
-                var selectedPar56Sliders = item.MovingHeadSliders;
+                this.SendDMXCommands(item.MovingHeadSliders);
+            }
+        }
 
-                /**
-                 * https://www.bax-shop.nl/downloads/products/9000-0004-8917/ayra_ero_540_led_rgb_movinghead_manual.pdf
-                 */
+        private void SendDMXCommands(ILightSerializer light)
+        {
+            var range = light.GetDMXRange();
+            var values = light.GetDMXValues();
 
-                this.dmxDriver.DmxLoadBuffer(7, (byte)selectedPar56Sliders.XAxis, this.buffSize);
-                this.dmxDriver.DmxLoadBuffer(8, (byte)selectedPar56Sliders.YAxis, this.buffSize);
-                this.dmxDriver.DmxLoadBuffer(9, (byte)selectedPar56Sliders.DimmerStrobe, this.buffSize);
-                this.dmxDriver.DmxLoadBuffer(10, (byte)selectedPar56Sliders.Color, this.buffSize);
-                this.dmxDriver.DmxLoadBuffer(11, (byte)selectedPar56Sliders.Gobo, this.buffSize);
-                this.dmxDriver.DmxLoadBuffer(12, 0, this.buffSize);
+            for (int i = range[0]; i <= range[1]; i++)
+            {
+                var data = values[i];
+
+                this.dmxDriver.DmxLoadBuffer((int)data[0], (byte)data[1], this.buffSize);
             }
         }
 
