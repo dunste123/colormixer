@@ -63,6 +63,12 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Compile Include="Controls\UcMovingHeadSliders.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UcMovingHeadSliders.Designer.cs">
+      <DependentUpon>UcMovingHeadSliders.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\UcPar56Sliders.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -77,6 +83,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Controls\UcMovingHeadSliders.resx">
+      <DependentUpon>UcMovingHeadSliders.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\UcPar56Sliders.resx">
       <DependentUpon>UcPar56Sliders.cs</DependentUpon>
     </EmbeddedResource>

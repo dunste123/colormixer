@@ -33,7 +33,15 @@ namespace KleurenMixerV1Cs1.Controls
             set => this.CbPar56Dste.Checked = value;
         }
 
+        public bool MovingHeadSlidersEnabled
+        {
+            get => this.CbMovingHeadDste.Checked;
+            set => this.CbMovingHeadDste.Checked = value;
+        }
+
         public UcPar56Sliders Par56Sliders { get; set; }
+
+        public UcMovingHeadSliders MovingHeadSliders { get; set; }
 
         public void HideAllControls()
         {
@@ -50,16 +58,25 @@ namespace KleurenMixerV1Cs1.Controls
                 this.Par56Sliders = new UcPar56Sliders();
             }
 
-            if (!this.Par56Sliders.Shown)
+            var eventArgs = new LightTypeEventArgs();
+            eventArgs.ArrayIndex = this.ArrayIndex;
+            eventArgs.Control = this.Par56Sliders;
+
+            this.OnSliderControlSet(eventArgs);
+        }
+
+        private void BtnMovingHeadDSte_Click(object sender, EventArgs e)
+        {
+            if (this.MovingHeadSliders == null)
             {
-                this.Par56Sliders.Shown = true;
-
-                var eventArgs = new LightTypeEventArgs();
-                eventArgs.ArrayIndex = this.ArrayIndex;
-                eventArgs.Control = this.Par56Sliders;
-
-                this.OnSliderControlSet(eventArgs);
+                this.MovingHeadSliders = new UcMovingHeadSliders();
             }
+
+            var eventArgs = new LightTypeEventArgs();
+            eventArgs.ArrayIndex = this.ArrayIndex;
+            eventArgs.Control = this.MovingHeadSliders;
+
+            this.OnSliderControlSet(eventArgs);
         }
 
         protected virtual void OnSliderControlSet(LightTypeEventArgs e)
@@ -93,6 +110,16 @@ namespace KleurenMixerV1Cs1.Controls
                     case "Par56SlidersEnabled":
                         this.Par56SlidersEnabled = reader.ReadElementContentAsBoolean();
                         break;
+                    case "MovingHeadSliders":
+                        var seri2 = new XmlSerializer(typeof(UcMovingHeadSliders));
+                        var val2 = reader.ReadInnerXml();
+                        var stream2 = new MemoryStream(Encoding.UTF8.GetBytes(val2));
+
+                        this.MovingHeadSliders = (UcMovingHeadSliders)seri2.Deserialize(stream2);
+                        break;
+                    case "MovingHeadSlidersEnabled":
+                        this.MovingHeadSlidersEnabled = reader.ReadElementContentAsBoolean();
+                        break;
                     default:
                         reader.ReadElementContentAsString();
                         break;
@@ -115,6 +142,15 @@ namespace KleurenMixerV1Cs1.Controls
 
             writer.WriteStartElement("Par56SlidersEnabled");
             writer.WriteValue(this.Par56SlidersEnabled);
+            writer.WriteEndElement();
+
+            writer.WriteStartElement("MovingHeadSliders");
+            var seri2 = new XmlSerializer(typeof(UcMovingHeadSliders));
+            seri2.Serialize(writer, this.MovingHeadSliders);
+            writer.WriteEndElement();
+
+            writer.WriteStartElement("MovingHeadSlidersEnabled");
+            writer.WriteValue(this.MovingHeadSlidersEnabled);
             writer.WriteEndElement();
         }
 

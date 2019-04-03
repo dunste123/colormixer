@@ -30,8 +30,8 @@
         {
             this.btnPar56Dste = new System.Windows.Forms.Button();
             this.CbPar56Dste = new System.Windows.Forms.CheckBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.btnMovingHeadDSte = new System.Windows.Forms.Button();
+            this.CbMovingHeadDste = new System.Windows.Forms.CheckBox();
             this.button2 = new System.Windows.Forms.Button();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.button3 = new System.Windows.Forms.Button();
@@ -58,23 +58,24 @@
             this.CbPar56Dste.TabIndex = 1;
             this.CbPar56Dste.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnMovingHeadDSte
             // 
-            this.button1.Location = new System.Drawing.Point(139, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 56);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Test";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnMovingHeadDSte.Location = new System.Drawing.Point(139, 3);
+            this.btnMovingHeadDSte.Name = "btnMovingHeadDSte";
+            this.btnMovingHeadDSte.Size = new System.Drawing.Size(75, 56);
+            this.btnMovingHeadDSte.TabIndex = 0;
+            this.btnMovingHeadDSte.Text = "Moving Head";
+            this.btnMovingHeadDSte.UseVisualStyleBackColor = true;
+            this.btnMovingHeadDSte.Click += new System.EventHandler(this.BtnMovingHeadDSte_Click);
             // 
-            // checkBox1
+            // CbMovingHeadDste
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(221, 24);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(15, 14);
-            this.checkBox1.TabIndex = 1;
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.CbMovingHeadDste.AutoSize = true;
+            this.CbMovingHeadDste.Location = new System.Drawing.Point(221, 24);
+            this.CbMovingHeadDste.Name = "CbMovingHeadDste";
+            this.CbMovingHeadDste.Size = new System.Drawing.Size(15, 14);
+            this.CbMovingHeadDste.TabIndex = 1;
+            this.CbMovingHeadDste.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
@@ -128,11 +129,11 @@
             this.Controls.Add(this.lblIndexDste);
             this.Controls.Add(this.checkBox3);
             this.Controls.Add(this.checkBox2);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.CbMovingHeadDste);
             this.Controls.Add(this.CbPar56Dste);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnMovingHeadDSte);
             this.Controls.Add(this.btnPar56Dste);
             this.Name = "UcLightTypes";
             this.Size = new System.Drawing.Size(448, 64);
@@ -145,8 +146,8 @@
 
         private System.Windows.Forms.Button btnPar56Dste;
         private System.Windows.Forms.CheckBox CbPar56Dste;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Button btnMovingHeadDSte;
+        private System.Windows.Forms.CheckBox CbMovingHeadDste;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.Button button3;

@@ -42,6 +42,61 @@ namespace KleurenMixerV1Cs1
 
             this.AddLightType(lightTypes);
         }
+        
+        private void BtnDupeStepDSte_Click(object sender, EventArgs e)
+        {
+
+            if ((this.lightTypesArray.Count - 1) < 0)
+            {
+                MessageBox.Show("Please add at least one step", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                return;
+            }
+
+            var type = this.lightTypesArray[this.lightTypesArray.Count - 1];
+
+            if (type == null)
+            {
+                MessageBox.Show("No previous step to copy from", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                return;
+            }
+
+            var lightTypes = new UcLightTypes();
+
+            if (type.Par56Sliders != null)
+            {
+                var newPar = new UcPar56Sliders();
+
+                newPar.Shown = false;
+                newPar.RedValue = type.Par56Sliders.RedValue;
+                newPar.GreenValue = type.Par56Sliders.GreenValue;
+                newPar.BlueValue = type.Par56Sliders.BlueValue;
+                newPar.StrobeValue = type.Par56Sliders.StrobeValue;
+
+                lightTypes.Par56Sliders = newPar;
+            }
+
+            lightTypes.Par56SlidersEnabled = type.Par56SlidersEnabled;
+
+            if (type.MovingHeadSliders != null)
+            {
+                var newHead = new UcMovingHeadSliders();
+
+                newHead.Shown = false;
+                newHead.XAxis = type.MovingHeadSliders.XAxis;
+                newHead.YAxis = type.MovingHeadSliders.YAxis;
+                newHead.DimmerStrobe = type.MovingHeadSliders.DimmerStrobe;
+                newHead.Color = type.MovingHeadSliders.Color;
+                newHead.Gobo = type.MovingHeadSliders.Gobo;
+
+                lightTypes.MovingHeadSliders = newHead;
+            }
+
+            lightTypes.MovingHeadSlidersEnabled = type.MovingHeadSlidersEnabled;
+
+            this.AddLightType(lightTypes);
+        }
 
         private void AddLightType(UcLightTypes lightTypes)
         {
@@ -260,18 +315,10 @@ namespace KleurenMixerV1Cs1
 
             if (item == null)
             {
-                this.dmxDriver.DmxLoadBuffer(1, 0, this.buffSize);
-                this.dmxDriver.DmxLoadBuffer(2, 0, this.buffSize);
-                this.dmxDriver.DmxLoadBuffer(3, 0, this.buffSize);
-
-                // color stepper val = color
-                this.dmxDriver.DmxLoadBuffer(4, 0, this.buffSize);
-
-                // shutter = 0 - 255
-                this.dmxDriver.DmxLoadBuffer(5, 0, this.buffSize);
-
-                // fader val = fade speed
-                this.dmxDriver.DmxLoadBuffer(6, 0, this.buffSize);
+                for (int i = 0; i < this.buffSize; i++)
+                {
+                    this.dmxDriver.DmxLoadBuffer(i, 0, this.buffSize);
+                }
 
                 return;
             }
@@ -279,6 +326,10 @@ namespace KleurenMixerV1Cs1
             if (item.Par56SlidersEnabled)
             {
                 var selectedPar56Sliders = item.Par56Sliders;
+
+                /**
+                 * https://manuals.coolblue.nl/a1/showtec-led-par-56-short-eco.pdf
+                 */
 
                 this.dmxDriver.DmxLoadBuffer(1, (byte)selectedPar56Sliders.RedValue, this.buffSize);
                 this.dmxDriver.DmxLoadBuffer(2, (byte)selectedPar56Sliders.GreenValue, this.buffSize);
@@ -298,11 +349,27 @@ namespace KleurenMixerV1Cs1
                 //    this.dmxDriver.DmxLoadBuffer(6, (byte)this.trbFadeSpeedDSte.Value, this.buffSize);
                 //}
             }
+
+            if (item.MovingHeadSlidersEnabled)
+            {
+                var selectedPar56Sliders = item.MovingHeadSliders;
+
+                /**
+                 * https://www.bax-shop.nl/downloads/products/9000-0004-8917/ayra_ero_540_led_rgb_movinghead_manual.pdf
+                 */
+
+                this.dmxDriver.DmxLoadBuffer(7, (byte)selectedPar56Sliders.XAxis, this.buffSize);
+                this.dmxDriver.DmxLoadBuffer(8, (byte)selectedPar56Sliders.YAxis, this.buffSize);
+                this.dmxDriver.DmxLoadBuffer(9, (byte)selectedPar56Sliders.DimmerStrobe, this.buffSize);
+                this.dmxDriver.DmxLoadBuffer(10, (byte)selectedPar56Sliders.Color, this.buffSize);
+                this.dmxDriver.DmxLoadBuffer(11, (byte)selectedPar56Sliders.Gobo, this.buffSize);
+                this.dmxDriver.DmxLoadBuffer(12, 0, this.buffSize);
+            }
         }
 
         // Auto stepper
 
-        private void tmrShowStepperDSte_Tick(object sender, EventArgs e)
+        private void TmrShowStepperDSte_Tick(object sender, EventArgs e)
         {
             if (this.pnlShowStepper.BackColor == Color.White)
             {
@@ -354,7 +421,7 @@ namespace KleurenMixerV1Cs1
             if (count > 1)
             {
 
-                for (double i = 0.1D; i <= 1D; i = Math.Round(i + 0.1, 1, MidpointRounding.AwayFromZero))
+                for (double i = 0.1D; i <= 4D; i = Math.Round(i + 0.1, 1, MidpointRounding.AwayFromZero))
                 {
                     box.Items.Add(i);
                 }
