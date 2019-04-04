@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KleurenMixerV1Cs1.Serializers;
+using System;
 using System.Drawing;
 
 /**
@@ -20,15 +21,15 @@ namespace KleurenMixerV1Cs1.Controls
             return _dmxRange;
         }
 
-        public override object[][] GetDMXValues()
+        public override int[][] GetDMXValues()
         {
-            return new object[6][] {
-                new object[2] { 1, this.RedDMXValue },
-                new object[2] { 2, this.GreenDMXValue },
-                new object[2] { 3, this.BlueDMXValue },
-                new object[2] { 4, 0 },
-                new object[2] { 5, this.StrobeDMXValue },
-                new object[2] { 6, 0 },
+            return new int[6][] {
+                new int[2] { 1, this.RedDMXValue },
+                new int[2] { 2, this.GreenDMXValue },
+                new int[2] { 3, this.BlueDMXValue },
+                new int[2] { 4, 0 },
+                new int[2] { 5, this.StrobeDMXValue },
+                new int[2] { 6, 0 },
             };
         }
 

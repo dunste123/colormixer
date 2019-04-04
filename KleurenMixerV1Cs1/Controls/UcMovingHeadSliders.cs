@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KleurenMixerV1Cs1.Serializers;
+using System;
 
 /**
  * https://www.bax-shop.nl/downloads/products/9000-0004-8917/ayra_ero_540_led_rgb_movinghead_manual.pdf
@@ -19,15 +20,15 @@ namespace KleurenMixerV1Cs1.Controls
             return _dmxRange;
         }
 
-        public override object[][] GetDMXValues()
+        public override int[][] GetDMXValues()
         {
-            return new object[6][] {
-                new object[2] { 7,  this.XAxisDMXValue },
-                new object[2] { 8,  this.YAxisDMXValue },
-                new object[2] { 9,  this.DimmerStrobeDMXValue },
-                new object[2] { 10, this.ColorDMXValue },
-                new object[2] { 11, this.GoboDMXValue },
-                new object[2] { 12, 0 },
+            return new int[6][] {
+                new int[2] { 7,  this.XAxisDMXValue },
+                new int[2] { 8,  this.YAxisDMXValue },
+                new int[2] { 9,  this.DimmerStrobeDMXValue },
+                new int[2] { 10, this.ColorDMXValue },
+                new int[2] { 11, this.GoboDMXValue },
+                new int[2] { 12, 0 },
             };
         }
 

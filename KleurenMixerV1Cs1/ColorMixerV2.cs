@@ -1,5 +1,6 @@
 ﻿using Dmx512UsbRs485;
 using KleurenMixerV1Cs1.Controls;
+using KleurenMixerV1Cs1.Serializers;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -64,36 +65,36 @@ namespace KleurenMixerV1Cs1
 
             var lightTypes = new UcLightTypes();
 
-            if (type.Par56Sliders != null)
+            if (type.Par56SlidersDSte != null)
             {
                 var newPar = new UcPar56Sliders();
 
                 newPar.Shown = false;
-                newPar.RedDMXValue = type.Par56Sliders.RedDMXValue;
-                newPar.GreenDMXValue = type.Par56Sliders.GreenDMXValue;
-                newPar.BlueDMXValue = type.Par56Sliders.BlueDMXValue;
-                newPar.StrobeDMXValue = type.Par56Sliders.StrobeDMXValue;
+                newPar.RedDMXValue = type.Par56SlidersDSte.RedDMXValue;
+                newPar.GreenDMXValue = type.Par56SlidersDSte.GreenDMXValue;
+                newPar.BlueDMXValue = type.Par56SlidersDSte.BlueDMXValue;
+                newPar.StrobeDMXValue = type.Par56SlidersDSte.StrobeDMXValue;
 
-                lightTypes.Par56Sliders = newPar;
+                lightTypes.Par56SlidersDSte = newPar;
             }
 
-            lightTypes.Par56SlidersEnabled = type.Par56SlidersEnabled;
+            lightTypes.Par56SlidersEnabledDSte = type.Par56SlidersEnabledDSte;
 
-            if (type.MovingHeadSliders != null)
+            if (type.MovingHeadSlidersDSte != null)
             {
                 var newHead = new UcMovingHeadSliders();
 
                 newHead.Shown = false;
-                newHead.XAxisDMXValue = type.MovingHeadSliders.XAxisDMXValue;
-                newHead.YAxisDMXValue = type.MovingHeadSliders.YAxisDMXValue;
-                newHead.DimmerStrobeDMXValue = type.MovingHeadSliders.DimmerStrobeDMXValue;
-                newHead.ColorDMXValue = type.MovingHeadSliders.ColorDMXValue;
-                newHead.GoboDMXValue = type.MovingHeadSliders.GoboDMXValue;
+                newHead.XAxisDMXValue = type.MovingHeadSlidersDSte.XAxisDMXValue;
+                newHead.YAxisDMXValue = type.MovingHeadSlidersDSte.YAxisDMXValue;
+                newHead.DimmerStrobeDMXValue = type.MovingHeadSlidersDSte.DimmerStrobeDMXValue;
+                newHead.ColorDMXValue = type.MovingHeadSlidersDSte.ColorDMXValue;
+                newHead.GoboDMXValue = type.MovingHeadSlidersDSte.GoboDMXValue;
 
-                lightTypes.MovingHeadSliders = newHead;
+                lightTypes.MovingHeadSlidersDSte = newHead;
             }
 
-            lightTypes.MovingHeadSlidersEnabled = type.MovingHeadSlidersEnabled;
+            lightTypes.MovingHeadSlidersEnabledDSte = type.MovingHeadSlidersEnabledDSte;
 
             this.AddLightType(lightTypes);
         }
@@ -113,7 +114,7 @@ namespace KleurenMixerV1Cs1
                 lightTypes.Top = prevType.Bottom + 5;
             }
 
-            lightTypes.ArrayIndex = count;
+            lightTypes.ArrayIndexDSte = count;
             lightTypes.SliderControlSet += OnLightTypeSliderControlChanged;
 
             lightTypesArray.Add(lightTypes);
@@ -180,10 +181,10 @@ namespace KleurenMixerV1Cs1
             {
                 var prev = this.lightTypesArray[this.prevStep];
 
-                prev.BackColor = this.GetColorForStep(prev.ArrayIndex);
+                prev.BackColor = this.GetColorForStep(prev.ArrayIndexDSte);
             }
 
-            this.prevStep = selected.ArrayIndex;
+            this.prevStep = selected.ArrayIndexDSte;
 
             selected.BackColor = Color.GreenYellow;
 
@@ -198,7 +199,7 @@ namespace KleurenMixerV1Cs1
                 return;
             }
 
-            selected.BackColor = this.GetColorForStep(selected.ArrayIndex);
+            selected.BackColor = this.GetColorForStep(selected.ArrayIndexDSte);
             this.currentStep = -1;
         }
 
@@ -243,7 +244,7 @@ namespace KleurenMixerV1Cs1
                     {
                         this.AddLightType(lightTypes);
 
-                        Console.WriteLine(lightTypes.ArrayIndex);
+                        Console.WriteLine(lightTypes.ArrayIndexDSte);
                     }
                 }
 
@@ -323,14 +324,14 @@ namespace KleurenMixerV1Cs1
                 return;
             }
 
-            if (item.Par56SlidersEnabled)
+            if (item.Par56SlidersEnabledDSte)
             {
-                this.SendDMXCommands(item.Par56Sliders);
+                this.SendDMXCommands(item.Par56SlidersDSte);
             }
 
-            if (item.MovingHeadSlidersEnabled)
+            if (item.MovingHeadSlidersEnabledDSte)
             {
-                this.SendDMXCommands(item.MovingHeadSliders);
+                this.SendDMXCommands(item.MovingHeadSlidersDSte);
             }
         }
 
@@ -435,10 +436,10 @@ namespace KleurenMixerV1Cs1
             {
                 var prev = this.lightTypesArray[this.prevStep];
 
-                prev.BackColor = this.GetColorForStep(prev.ArrayIndex);
+                prev.BackColor = this.GetColorForStep(prev.ArrayIndexDSte);
             }
 
-            this.prevStep = selected.ArrayIndex;
+            this.prevStep = selected.ArrayIndexDSte;
 
             selected.BackColor = Color.GreenYellow;
         }
