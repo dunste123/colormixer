@@ -25,7 +25,7 @@ namespace KleurenMixerV1Cs1
         {
             InitializeComponent();
 
-            this.tcMainDste.SelectedTab = this.tbLightControlDste;
+            //this.tcMainDste.SelectedTab = this.tbLightControlDste;
         }
 
         private void ColorMixerV2_Load(object sender, EventArgs e)
@@ -312,9 +312,9 @@ namespace KleurenMixerV1Cs1
 
         private void SendData()
         {
-            var item = this.GetSelectedLightTypeOrNull();
+            var step = this.GetSelectedLightTypeOrNull();
 
-            if (item == null)
+            if (step == null)
             {
                 for (int i = 1; i < this.buffSize; i++)
                 {
@@ -324,14 +324,14 @@ namespace KleurenMixerV1Cs1
                 return;
             }
 
-            if (item.Par56SlidersEnabledDSte)
+            if (step.Par56SlidersEnabledDSte)
             {
-                this.SendDMXCommands(item.Par56SlidersDSte);
+                this.SendDMXCommands(step.Par56SlidersDSte);
             }
 
-            if (item.MovingHeadSlidersEnabledDSte)
+            if (step.MovingHeadSlidersEnabledDSte)
             {
-                this.SendDMXCommands(item.MovingHeadSlidersDSte);
+                this.SendDMXCommands(step.MovingHeadSlidersDSte);
             }
         }
 

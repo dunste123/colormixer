@@ -113,9 +113,7 @@ namespace KleurenMixerV1Cs1.Controls
                     {
                         var seri = new XmlSerializer(type);
                         var val = reader.ReadInnerXml();
-
                         var stream = new MemoryStream(Encoding.UTF8.GetBytes(val));
-
 
                         field.SetValue(this, seri.Deserialize(stream), null);
                     }
