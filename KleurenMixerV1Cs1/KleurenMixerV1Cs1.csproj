@@ -34,24 +34,6 @@
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <Compile Include="ColorMixerV2.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ColorMixerV2.Designer.cs">
-      <DependentUpon>ColorMixerV2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\UcLightTypes.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\UcLightTypes.Designer.cs">
-      <DependentUpon>UcLightTypes.cs</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="ColorMixerV2.resx">
-      <DependentUpon>ColorMixerV2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\UcLightTypes.resx">
-      <DependentUpon>UcLightTypes.cs</DependentUpon>
-    </EmbeddedResource>
     <Reference Include="Dmx512UsbRs485">
       <HintPath>..\Dmx512UsbRs485.dll</HintPath>
     </Reference>
@@ -66,34 +48,44 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Compile Include="Controls\UcMovingHeadSliders.cs">
-      <SubType>UserControl</SubType>
+    <Compile Include="DMXControl\ColorMixerV2.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Controls\UcMovingHeadSliders.Designer.cs">
+    <Compile Include="DMXControl\ColorMixerV2.Designer.cs">
+      <DependentUpon>ColorMixerV2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DMXControl\Controls\UcLightTypes.cs" />
+    <Compile Include="DMXControl\Controls\UcLightTypes.Designer.cs">
+      <DependentUpon>UcLightTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DMXControl\Controls\UcMovingHeadSliders.cs" />
+    <Compile Include="DMXControl\Controls\UcMovingHeadSliders.Designer.cs">
       <DependentUpon>UcMovingHeadSliders.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\UcPar56Sliders.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\UcPar56Sliders.Designer.cs">
+    <Compile Include="DMXControl\Controls\UcPar56Sliders.cs" />
+    <Compile Include="DMXControl\Controls\UcPar56Sliders.Designer.cs">
       <DependentUpon>UcPar56Sliders.cs</DependentUpon>
     </Compile>
+    <Compile Include="DMXControl\Serializers\ILightSerializer.cs" />
+    <Compile Include="DMXControl\Serializers\LightSerializerDSte.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Serializers\ILightSerializer.cs" />
-    <Compile Include="Serializers\LightSerializerDSte.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Controls\UcMovingHeadSliders.resx">
+    <EmbeddedResource Include="DMXControl\ColorMixerV2.resx">
+      <DependentUpon>ColorMixerV2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DMXControl\Controls\UcLightTypes.resx">
+      <DependentUpon>UcLightTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DMXControl\Controls\UcMovingHeadSliders.resx">
       <DependentUpon>UcMovingHeadSliders.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\UcPar56Sliders.resx">
+    <EmbeddedResource Include="DMXControl\Controls\UcPar56Sliders.resx">
       <DependentUpon>UcPar56Sliders.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">

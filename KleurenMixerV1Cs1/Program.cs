@@ -1,17 +1,14 @@
-﻿namespace KleurenMixerV1Cs1
-{
-    using System;
-    using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
+using DMXControl;
 
-    internal static class Program
+internal static class Program
+{
+    [STAThread]
+    private static void Main()
     {
-        [STAThread]
-        private static void Main()
-        {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ColorMixerV2());
-        }
+        Application.EnableVisualStyles();
+        Application.SetCompatibleTextRenderingDefault(false);
+        Application.Run(new ColorMixerV2());
     }
 }
-

@@ -1,4 +1,4 @@
-﻿namespace KleurenMixerV1Cs1
+﻿namespace DMXControl
 {
     partial class ColorMixerV2
     {

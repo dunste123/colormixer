@@ -1,6 +1,6 @@
-﻿namespace KleurenMixerV1Cs1.Controls
+﻿namespace DMXControl.Controls
 {
-    partial class UcLightTypes
+    sealed partial class UcLightTypes
     {
         /// <summary> 
         /// Required designer variable.

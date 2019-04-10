@@ -1,4 +1,4 @@
-﻿namespace KleurenMixerV1Cs1.Controls
+﻿namespace DMXControl.Controls
 {
     partial class UcPar56Sliders
     {

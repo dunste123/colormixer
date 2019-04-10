@@ -6,17 +6,16 @@ using System.Xml;
 using System.Xml.Schema;
 using System.Xml.Serialization;
 
-namespace KleurenMixerV1Cs1.Serializers
+namespace DMXControl.Serializers
 {
     public abstract class LightSerializerDSte : UserControl, IXmlSerializable, ILightSerializer
     {
-        private static readonly BindingFlags bindingFlags = BindingFlags.Public | BindingFlags.Instance;
+        private const BindingFlags BindingFlags = System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Instance;
 
-        public virtual void AfterReading() { }
-        public virtual void AfterWriting() { }
+        protected virtual void AfterReading() { }
 
-        public abstract int[] GetDMXRange();
-        public abstract int[][] GetDMXValues();
+        public abstract int[] GetDmxRange();
+        public abstract int[][] GetDmxValues();
 
         public XmlSchema GetSchema()
         {
@@ -25,17 +24,20 @@ namespace KleurenMixerV1Cs1.Serializers
 
         public void ReadXml(XmlReader reader)
         {
-            reader.ReadStartElement(this.GetType().Name);
+            reader.ReadStartElement(GetType().Name);
 
             while (reader.IsStartElement())
             {
                 try
                 {
                     var name = reader.LocalName;
-                    var field = this.GetType().GetProperty(name);
+                    var field = GetType().GetProperty(name);
                     var content = reader.ReadElementContentAsInt();
 
-                    field.SetValue(this, content, null);
+                    if (field != null)
+                    {
+                        field.SetValue(this, content, null);
+                    }
                 }
                 catch (Exception e)
                 {
@@ -46,14 +48,14 @@ namespace KleurenMixerV1Cs1.Serializers
 
             reader.ReadEndElement();
 
-            this.AfterReading();
+            AfterReading();
         }
 
         public void WriteXml(XmlWriter writer)
         {
-            var props = this.GetType().GetProperties(bindingFlags).Where((x) => x.Name.EndsWith("DMXValue"));
+            var props = GetType().GetProperties(BindingFlags).Where(x => x.Name.EndsWith("DMXValue"));
 
-            foreach (PropertyInfo prop in props)
+            foreach (var prop in props)
             {
                 var xmlValue = prop.GetValue(this, null);
 
@@ -61,8 +63,6 @@ namespace KleurenMixerV1Cs1.Serializers
                 writer.WriteValue(xmlValue);
                 writer.WriteEndElement();
             }
-
-            this.AfterWriting();
         }
     }
 }

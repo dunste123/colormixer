@@ -1,20 +1,20 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Schema;
 using System.Xml.Serialization;
-using System.Linq;
 
-namespace KleurenMixerV1Cs1.Controls
+namespace DMXControl.Controls
 {
-    public partial class UcLightTypes : UserControl, IXmlSerializable
+    public sealed partial class UcLightTypes : UserControl, IXmlSerializable
     {
-        private static readonly BindingFlags bindingFlags = BindingFlags.Public | BindingFlags.Instance;
+        private const BindingFlags BindingFlags = System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Instance;
 
-        private int arrayIndex = 0;
+        private int arrayIndex;
 
         public UcLightTypes()
         {
@@ -23,24 +23,24 @@ namespace KleurenMixerV1Cs1.Controls
 
         public int ArrayIndexDSte
         {
-            get => this.arrayIndex;
+            get => arrayIndex;
             set
             {
-                this.arrayIndex = value;
-                this.lblIndexDste.Text = (value + 1).ToString();
+                arrayIndex = value;
+                lblIndexDste.Text = (value + 1).ToString();
             }
         }
 
         public bool Par56SlidersEnabledDSte
         {
-            get => this.CbPar56Dste.Checked;
-            set => this.CbPar56Dste.Checked = value;
+            get => CbPar56Dste.Checked;
+            set => CbPar56Dste.Checked = value;
         }
 
         public bool MovingHeadSlidersEnabledDSte
         {
-            get => this.CbMovingHeadDste.Checked;
-            set => this.CbMovingHeadDste.Checked = value;
+            get => CbMovingHeadDste.Checked;
+            set => CbMovingHeadDste.Checked = value;
         }
 
         public UcPar56Sliders Par56SlidersDSte { get; set; }
@@ -49,50 +49,54 @@ namespace KleurenMixerV1Cs1.Controls
 
         public void HideAllControls()
         {
-            if (this.Par56SlidersDSte != null)
+            if (Par56SlidersDSte != null)
             {
-                this.Par56SlidersDSte.Shown = false;
+                Par56SlidersDSte.Shown = false;
             }
         }
 
         private void BtnPar56Dste_Click(object sender, EventArgs e)
         {
-            if (this.Par56SlidersDSte == null)
+            if (Par56SlidersDSte == null)
             {
-                this.Par56SlidersDSte = new UcPar56Sliders();
-                this.Par56SlidersEnabledDSte = true;
+                Par56SlidersDSte = new UcPar56Sliders();
+                Par56SlidersEnabledDSte = true;
             }
 
-            var eventArgs = new LightTypeEventArgs();
-            eventArgs.ArrayIndex = this.ArrayIndexDSte;
-            eventArgs.Control = this.Par56SlidersDSte;
+            var eventArgs = new LightTypeEventArgs
+            {
+                ArrayIndex = ArrayIndexDSte, 
+                Control = Par56SlidersDSte
+            };
 
-            this.OnSliderControlSet(eventArgs);
+            OnSliderControlSet(eventArgs);
         }
 
         private void BtnMovingHeadDSte_Click(object sender, EventArgs e)
         {
-            if (this.MovingHeadSlidersDSte == null)
+            if (MovingHeadSlidersDSte == null)
             {
-                this.MovingHeadSlidersDSte = new UcMovingHeadSliders();
-                this.MovingHeadSlidersEnabledDSte = true;
+                MovingHeadSlidersDSte = new UcMovingHeadSliders();
+                MovingHeadSlidersEnabledDSte = true;
             }
 
-            var eventArgs = new LightTypeEventArgs();
-            eventArgs.ArrayIndex = this.ArrayIndexDSte;
-            eventArgs.Control = this.MovingHeadSlidersDSte;
+            var eventArgs = new LightTypeEventArgs
+            {
+                ArrayIndex = ArrayIndexDSte, 
+                Control = MovingHeadSlidersDSte
+            };
 
-            this.OnSliderControlSet(eventArgs);
+            OnSliderControlSet(eventArgs);
         }
 
-        protected virtual void OnSliderControlSet(LightTypeEventArgs e)
+        private void OnSliderControlSet(LightTypeEventArgs e)
         {
-            this.SliderControlSet?.Invoke(this, e);
+            SliderControlSet?.Invoke(this, e);
         }
 
         public XmlSchema GetSchema()
         {
-            throw null;
+            return null;
         }
 
         public void ReadXml(XmlReader reader)
@@ -106,7 +110,13 @@ namespace KleurenMixerV1Cs1.Controls
                 try
                 {
                     var name = reader.LocalName;
-                    var field = this.GetType().GetProperty(name);
+                    var field = GetType().GetProperty(name);
+
+                    if (field == null)
+                    {
+                        return;
+                    }
+                    
                     var type = field.PropertyType;
 
                     if (type.Name.EndsWith("Sliders"))
@@ -136,9 +146,9 @@ namespace KleurenMixerV1Cs1.Controls
 
         public void WriteXml(XmlWriter writer)
         {
-            var props = this.GetType().GetProperties(bindingFlags).Where((x) => x.Name.EndsWith("DSte"));
+            var props = GetType().GetProperties(BindingFlags).Where((x) => x.Name.EndsWith("DSte"));
 
-            foreach (PropertyInfo prop in props)
+            foreach (var prop in props)
             {
                 var xmlValue = prop.GetValue(this, null);
 
