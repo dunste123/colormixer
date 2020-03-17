@@ -1,5 +1,5 @@
-﻿using System;
-using DMXControl.Serializers;
+﻿using DMXControl.Serializers;
+using System;
 
 /**
  * https://www.bax-shop.nl/downloads/products/9000-0004-8917/ayra_ero_540_led_rgb_movinghead_manual.pdf
@@ -8,8 +8,6 @@ namespace DMXControl.Controls
 {
     public partial class UcMovingHeadSliders : LightSerializerDSte
     {
-        private static readonly int[] DmxRange = {7, 12};
-
         public UcMovingHeadSliders()
         {
             InitializeComponent();
@@ -17,19 +15,23 @@ namespace DMXControl.Controls
 
         public override int[] GetDmxRange()
         {
-            return DmxRange;
+            return new[]
+            {
+                this._startAddress,
+                this._startAddress + 6
+            };
         }
 
-        public override int[][] GetDmxValues()
+        public override int[] GetDmxValues()
         {
             return new[]
             {
-                new[] {7, XAxisDMXValue},
-                new[] {8, YAxisDMXValue},
-                new[] {9, DimmerStrobeDMXValue},
-                new[] {10, ColorDMXValue},
-                new[] {11, GoboDMXValue},
-                new[] {12, 0}
+                XAxisDMXValue, // dmx channel 1
+                YAxisDMXValue, // dmx channel 2
+                DimmerStrobeDMXValue, // dmx channel 3
+                ColorDMXValue, // dmx channel 4
+                GoboDMXValue, // dmx channel 5
+                0, // dmx channel 6
             };
         }
 
@@ -64,7 +66,6 @@ namespace DMXControl.Controls
             get => trbGoboDSte.Value;
             set => trbGoboDSte.Value = value;
         }
-
 
         private void BtnResetDSte_Click(object sender, EventArgs e)
         {

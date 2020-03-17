@@ -340,11 +340,11 @@ namespace DMXControl
             var range = light.GetDmxRange();
             var values = light.GetDmxValues();
 
-            for (var i = range[0]; i <= range[1]; i++)
+            for (var dmxAddress = range[0]; dmxAddress <= range[1]; dmxAddress++)
             {
-                var data = values[i];
+                var data = values[dmxAddress - range[0]];
 
-                dmxDriver.DmxLoadBuffer(data[0], (byte)data[1], buffSize);
+                dmxDriver.DmxLoadBuffer(dmxAddress, (byte)data, buffSize);
             }
         }
 

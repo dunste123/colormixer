@@ -9,28 +9,21 @@ namespace DMXControl.Controls
 {
     public partial class UcPar56Sliders : LightSerializerDSte
     {
-        private static readonly int[] DmxRange = {1, 6};
-
         public UcPar56Sliders()
         {
             InitializeComponent();
         }
 
-        public override int[] GetDmxRange()
-        {
-            return DmxRange;
-        }
-
-        public override int[][] GetDmxValues()
+        public override int[] GetDmxValues()
         {
             return new[]
             {
-                new[] {1, RedDMXValue},
-                new[] {2, GreenDMXValue},
-                new[] {3, BlueDMXValue},
-                new[] {4, 0},
-                new[] {5, StrobeDMXValue},
-                new[] {6, 0}
+                RedDMXValue, // dmx channel 1
+                GreenDMXValue, // dmx channel 2
+                BlueDMXValue, // dmx channel 3
+                0, // dmx channel 4
+                StrobeDMXValue, // dmx channel 5
+                0, // dmx channel 6
             };
         }
 

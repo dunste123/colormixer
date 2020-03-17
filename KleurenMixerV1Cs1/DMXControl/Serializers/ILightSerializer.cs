@@ -3,6 +3,7 @@
     public interface ILightSerializer
     {
         int[] GetDmxRange();
-        int[][] GetDmxValues();
+        // int[][] GetDmxValues();
+        int[] GetDmxValues();
     }
 }
