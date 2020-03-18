@@ -44,6 +44,7 @@
             this.btnSaveShowDSte = new System.Windows.Forms.Button();
             this.btnStopAutoDSte = new System.Windows.Forms.Button();
             this.btnStartAutoDSte = new System.Windows.Forms.Button();
+            this.btnDupeStepDSte = new System.Windows.Forms.Button();
             this.BtnClearStepDSte = new System.Windows.Forms.Button();
             this.btnPrevStepDSte = new System.Windows.Forms.Button();
             this.btnNextStepDste = new System.Windows.Forms.Button();
@@ -52,7 +53,6 @@
             this.btnAddControlDste = new System.Windows.Forms.Button();
             this.CBoxTimerDSte = new System.Windows.Forms.Timer(this.components);
             this.tmrShowStepperDSte = new System.Windows.Forms.Timer(this.components);
-            this.btnDupeStepDSte = new System.Windows.Forms.Button();
             this.tcMainDste.SuspendLayout();
             this.tpSettingsDste.SuspendLayout();
             this.tbLightControlDste.SuspendLayout();
@@ -62,10 +62,10 @@
             // 
             this.tcMainDste.Controls.Add(this.tpSettingsDste);
             this.tcMainDste.Controls.Add(this.tbLightControlDste);
-            this.tcMainDste.Location = new System.Drawing.Point(12, 12);
+            this.tcMainDste.Location = new System.Drawing.Point(14, 14);
             this.tcMainDste.Name = "tcMainDste";
             this.tcMainDste.SelectedIndex = 0;
-            this.tcMainDste.Size = new System.Drawing.Size(1021, 426);
+            this.tcMainDste.Size = new System.Drawing.Size(1191, 492);
             this.tcMainDste.TabIndex = 0;
             // 
             // tpSettingsDste
@@ -78,10 +78,10 @@
             this.tpSettingsDste.Controls.Add(this.CbPortDSte);
             this.tpSettingsDste.Controls.Add(this.LblTimingDste);
             this.tpSettingsDste.Controls.Add(this.LblPortDSte);
-            this.tpSettingsDste.Location = new System.Drawing.Point(4, 22);
+            this.tpSettingsDste.Location = new System.Drawing.Point(4, 24);
             this.tpSettingsDste.Name = "tpSettingsDste";
             this.tpSettingsDste.Padding = new System.Windows.Forms.Padding(3);
-            this.tpSettingsDste.Size = new System.Drawing.Size(1013, 400);
+            this.tpSettingsDste.Size = new System.Drawing.Size(1183, 464);
             this.tpSettingsDste.TabIndex = 0;
             this.tpSettingsDste.Text = "Settings";
             this.tpSettingsDste.UseVisualStyleBackColor = true;
@@ -89,38 +89,31 @@
             // CbAutoStepCounter
             // 
             this.CbAutoStepCounter.FormattingEnabled = true;
-            this.CbAutoStepCounter.Items.AddRange(new object[] {
-            "off"});
-            this.CbAutoStepCounter.Location = new System.Drawing.Point(585, 94);
+            this.CbAutoStepCounter.Items.AddRange(new object[] {"off"});
+            this.CbAutoStepCounter.Location = new System.Drawing.Point(682, 108);
             this.CbAutoStepCounter.Name = "CbAutoStepCounter";
-            this.CbAutoStepCounter.Size = new System.Drawing.Size(121, 21);
+            this.CbAutoStepCounter.Size = new System.Drawing.Size(140, 23);
             this.CbAutoStepCounter.TabIndex = 30;
-            this.CbAutoStepCounter.Text = "Off";
-            this.CbAutoStepCounter.SelectedIndexChanged += new System.EventHandler(this.CbAutoStepCounter_SelectedIndexChanged);
+            this.CbAutoStepCounter.Text = "off";
+            this.CbAutoStepCounter.SelectedIndexChanged +=
+                new System.EventHandler(this.CbAutoStepCounter_SelectedIndexChanged);
             // 
             // autoStepperLblDSte
             // 
             this.autoStepperLblDSte.AutoSize = true;
-            this.autoStepperLblDSte.Location = new System.Drawing.Point(507, 97);
+            this.autoStepperLblDSte.Location = new System.Drawing.Point(591, 112);
             this.autoStepperLblDSte.Name = "autoStepperLblDSte";
-            this.autoStepperLblDSte.Size = new System.Drawing.Size(72, 13);
+            this.autoStepperLblDSte.Size = new System.Drawing.Size(79, 15);
             this.autoStepperLblDSte.TabIndex = 29;
             this.autoStepperLblDSte.Text = "Audo Stepper";
             // 
             // CbTimingDSte
             // 
             this.CbTimingDSte.FormattingEnabled = true;
-            this.CbTimingDSte.Items.AddRange(new object[] {
-            "10",
-            "25",
-            "50",
-            "100",
-            "250",
-            "500",
-            "1000"});
-            this.CbTimingDSte.Location = new System.Drawing.Point(106, 150);
+            this.CbTimingDSte.Items.AddRange(new object[] {"10", "25", "50", "100", "250", "500", "1000"});
+            this.CbTimingDSte.Location = new System.Drawing.Point(124, 173);
             this.CbTimingDSte.Name = "CbTimingDSte";
-            this.CbTimingDSte.Size = new System.Drawing.Size(121, 21);
+            this.CbTimingDSte.Size = new System.Drawing.Size(140, 23);
             this.CbTimingDSte.TabIndex = 28;
             this.CbTimingDSte.TabStop = false;
             this.CbTimingDSte.SelectedIndexChanged += new System.EventHandler(this.CbTimingDSte_SelectedIndexChanged);
@@ -128,25 +121,25 @@
             // pnlShowStepper
             // 
             this.pnlShowStepper.BackColor = System.Drawing.Color.White;
-            this.pnlShowStepper.Location = new System.Drawing.Point(727, 94);
+            this.pnlShowStepper.Location = new System.Drawing.Point(848, 108);
             this.pnlShowStepper.Name = "pnlShowStepper";
-            this.pnlShowStepper.Size = new System.Drawing.Size(20, 21);
+            this.pnlShowStepper.Size = new System.Drawing.Size(23, 24);
             this.pnlShowStepper.TabIndex = 27;
             // 
             // PnlTimerDSte
             // 
             this.PnlTimerDSte.BackColor = System.Drawing.Color.White;
-            this.PnlTimerDSte.Location = new System.Drawing.Point(261, 150);
+            this.PnlTimerDSte.Location = new System.Drawing.Point(304, 173);
             this.PnlTimerDSte.Name = "PnlTimerDSte";
-            this.PnlTimerDSte.Size = new System.Drawing.Size(20, 21);
+            this.PnlTimerDSte.Size = new System.Drawing.Size(23, 24);
             this.PnlTimerDSte.TabIndex = 27;
             // 
             // CbPortDSte
             // 
             this.CbPortDSte.FormattingEnabled = true;
-            this.CbPortDSte.Location = new System.Drawing.Point(94, 98);
+            this.CbPortDSte.Location = new System.Drawing.Point(110, 113);
             this.CbPortDSte.Name = "CbPortDSte";
-            this.CbPortDSte.Size = new System.Drawing.Size(121, 21);
+            this.CbPortDSte.Size = new System.Drawing.Size(140, 23);
             this.CbPortDSte.TabIndex = 1;
             this.CbPortDSte.Text = "Select Comport";
             this.CbPortDSte.SelectedIndexChanged += new System.EventHandler(this.CbPortDSte_SelectedIndexChanged);
@@ -154,18 +147,18 @@
             // LblTimingDste
             // 
             this.LblTimingDste.AutoSize = true;
-            this.LblTimingDste.Location = new System.Drawing.Point(56, 150);
+            this.LblTimingDste.Location = new System.Drawing.Point(65, 173);
             this.LblTimingDste.Name = "LblTimingDste";
-            this.LblTimingDste.Size = new System.Drawing.Size(44, 13);
+            this.LblTimingDste.Size = new System.Drawing.Size(50, 15);
             this.LblTimingDste.TabIndex = 0;
             this.LblTimingDste.Text = "Timing: ";
             // 
             // LblPortDSte
             // 
             this.LblPortDSte.AutoSize = true;
-            this.LblPortDSte.Location = new System.Drawing.Point(56, 98);
+            this.LblPortDSte.Location = new System.Drawing.Point(65, 113);
             this.LblPortDSte.Name = "LblPortDSte";
-            this.LblPortDSte.Size = new System.Drawing.Size(32, 13);
+            this.LblPortDSte.Size = new System.Drawing.Size(35, 15);
             this.LblPortDSte.TabIndex = 0;
             this.LblPortDSte.Text = "Port: ";
             // 
@@ -185,16 +178,16 @@
             this.tbLightControlDste.Location = new System.Drawing.Point(4, 22);
             this.tbLightControlDste.Name = "tbLightControlDste";
             this.tbLightControlDste.Padding = new System.Windows.Forms.Padding(3);
-            this.tbLightControlDste.Size = new System.Drawing.Size(1013, 400);
+            this.tbLightControlDste.Size = new System.Drawing.Size(1183, 466);
             this.tbLightControlDste.TabIndex = 1;
             this.tbLightControlDste.Text = "Light control";
             this.tbLightControlDste.UseVisualStyleBackColor = true;
             // 
             // btnLoadShowDSte
             // 
-            this.btnLoadShowDSte.Location = new System.Drawing.Point(7, 361);
+            this.btnLoadShowDSte.Location = new System.Drawing.Point(8, 417);
             this.btnLoadShowDSte.Name = "btnLoadShowDSte";
-            this.btnLoadShowDSte.Size = new System.Drawing.Size(112, 33);
+            this.btnLoadShowDSte.Size = new System.Drawing.Size(131, 38);
             this.btnLoadShowDSte.TabIndex = 3;
             this.btnLoadShowDSte.Text = "Load Show";
             this.btnLoadShowDSte.UseVisualStyleBackColor = true;
@@ -202,9 +195,9 @@
             // 
             // btnSaveShowDSte
             // 
-            this.btnSaveShowDSte.Location = new System.Drawing.Point(6, 321);
+            this.btnSaveShowDSte.Location = new System.Drawing.Point(7, 370);
             this.btnSaveShowDSte.Name = "btnSaveShowDSte";
-            this.btnSaveShowDSte.Size = new System.Drawing.Size(112, 34);
+            this.btnSaveShowDSte.Size = new System.Drawing.Size(131, 39);
             this.btnSaveShowDSte.TabIndex = 3;
             this.btnSaveShowDSte.Text = "Save Show";
             this.btnSaveShowDSte.UseVisualStyleBackColor = true;
@@ -212,9 +205,9 @@
             // 
             // btnStopAutoDSte
             // 
-            this.btnStopAutoDSte.Location = new System.Drawing.Point(62, 211);
+            this.btnStopAutoDSte.Location = new System.Drawing.Point(72, 243);
             this.btnStopAutoDSte.Name = "btnStopAutoDSte";
-            this.btnStopAutoDSte.Size = new System.Drawing.Size(56, 45);
+            this.btnStopAutoDSte.Size = new System.Drawing.Size(65, 52);
             this.btnStopAutoDSte.TabIndex = 3;
             this.btnStopAutoDSte.Text = "Stop Auto";
             this.btnStopAutoDSte.UseVisualStyleBackColor = true;
@@ -222,19 +215,29 @@
             // 
             // btnStartAutoDSte
             // 
-            this.btnStartAutoDSte.Location = new System.Drawing.Point(6, 211);
+            this.btnStartAutoDSte.Location = new System.Drawing.Point(7, 243);
             this.btnStartAutoDSte.Name = "btnStartAutoDSte";
-            this.btnStartAutoDSte.Size = new System.Drawing.Size(56, 45);
+            this.btnStartAutoDSte.Size = new System.Drawing.Size(65, 52);
             this.btnStartAutoDSte.TabIndex = 3;
             this.btnStartAutoDSte.Text = "Start Auto";
             this.btnStartAutoDSte.UseVisualStyleBackColor = true;
             this.btnStartAutoDSte.Click += new System.EventHandler(this.BtnStartAutoDSte_Click);
             // 
+            // btnDupeStepDSte
+            // 
+            this.btnDupeStepDSte.Location = new System.Drawing.Point(7, 302);
+            this.btnDupeStepDSte.Name = "btnDupeStepDSte";
+            this.btnDupeStepDSte.Size = new System.Drawing.Size(131, 52);
+            this.btnDupeStepDSte.TabIndex = 3;
+            this.btnDupeStepDSte.Text = "Copy Step";
+            this.btnDupeStepDSte.UseVisualStyleBackColor = true;
+            this.btnDupeStepDSte.Click += new System.EventHandler(this.BtnDupeStepDSte_Click);
+            // 
             // BtnClearStepDSte
             // 
-            this.BtnClearStepDSte.Location = new System.Drawing.Point(6, 160);
+            this.BtnClearStepDSte.Location = new System.Drawing.Point(7, 185);
             this.BtnClearStepDSte.Name = "BtnClearStepDSte";
-            this.BtnClearStepDSte.Size = new System.Drawing.Size(112, 45);
+            this.BtnClearStepDSte.Size = new System.Drawing.Size(131, 52);
             this.BtnClearStepDSte.TabIndex = 3;
             this.BtnClearStepDSte.Text = "Clear Step";
             this.BtnClearStepDSte.UseVisualStyleBackColor = true;
@@ -242,9 +245,9 @@
             // 
             // btnPrevStepDSte
             // 
-            this.btnPrevStepDSte.Location = new System.Drawing.Point(6, 109);
+            this.btnPrevStepDSte.Location = new System.Drawing.Point(7, 126);
             this.btnPrevStepDSte.Name = "btnPrevStepDSte";
-            this.btnPrevStepDSte.Size = new System.Drawing.Size(112, 45);
+            this.btnPrevStepDSte.Size = new System.Drawing.Size(131, 52);
             this.btnPrevStepDSte.TabIndex = 3;
             this.btnPrevStepDSte.Text = "Prev Step";
             this.btnPrevStepDSte.UseVisualStyleBackColor = true;
@@ -252,9 +255,9 @@
             // 
             // btnNextStepDste
             // 
-            this.btnNextStepDste.Location = new System.Drawing.Point(7, 58);
+            this.btnNextStepDste.Location = new System.Drawing.Point(8, 67);
             this.btnNextStepDste.Name = "btnNextStepDste";
-            this.btnNextStepDste.Size = new System.Drawing.Size(112, 45);
+            this.btnNextStepDste.Size = new System.Drawing.Size(131, 52);
             this.btnNextStepDste.TabIndex = 3;
             this.btnNextStepDste.Text = "Next Step";
             this.btnNextStepDste.UseVisualStyleBackColor = true;
@@ -262,24 +265,24 @@
             // 
             // pnlMixerDste
             // 
-            this.pnlMixerDste.Location = new System.Drawing.Point(600, 7);
+            this.pnlMixerDste.Location = new System.Drawing.Point(700, 8);
             this.pnlMixerDste.Name = "pnlMixerDste";
-            this.pnlMixerDste.Size = new System.Drawing.Size(407, 387);
+            this.pnlMixerDste.Size = new System.Drawing.Size(475, 447);
             this.pnlMixerDste.TabIndex = 2;
             // 
             // pnlStepsDste
             // 
             this.pnlStepsDste.AutoScroll = true;
-            this.pnlStepsDste.Location = new System.Drawing.Point(126, 7);
+            this.pnlStepsDste.Location = new System.Drawing.Point(147, 8);
             this.pnlStepsDste.Name = "pnlStepsDste";
-            this.pnlStepsDste.Size = new System.Drawing.Size(468, 387);
+            this.pnlStepsDste.Size = new System.Drawing.Size(546, 447);
             this.pnlStepsDste.TabIndex = 1;
             // 
             // btnAddControlDste
             // 
-            this.btnAddControlDste.Location = new System.Drawing.Point(7, 7);
+            this.btnAddControlDste.Location = new System.Drawing.Point(8, 8);
             this.btnAddControlDste.Name = "btnAddControlDste";
-            this.btnAddControlDste.Size = new System.Drawing.Size(112, 45);
+            this.btnAddControlDste.Size = new System.Drawing.Size(131, 52);
             this.btnAddControlDste.TabIndex = 0;
             this.btnAddControlDste.Text = "Add Step";
             this.btnAddControlDste.UseVisualStyleBackColor = true;
@@ -293,21 +296,11 @@
             // 
             this.tmrShowStepperDSte.Tick += new System.EventHandler(this.TmrShowStepperDSte_Tick);
             // 
-            // btnDupeStepDSte
-            // 
-            this.btnDupeStepDSte.Location = new System.Drawing.Point(6, 262);
-            this.btnDupeStepDSte.Name = "btnDupeStepDSte";
-            this.btnDupeStepDSte.Size = new System.Drawing.Size(112, 45);
-            this.btnDupeStepDSte.TabIndex = 3;
-            this.btnDupeStepDSte.Text = "Copy Step";
-            this.btnDupeStepDSte.UseVisualStyleBackColor = true;
-            this.btnDupeStepDSte.Click += new System.EventHandler(this.BtnDupeStepDSte_Click);
-            // 
             // ColorMixerV2
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1045, 450);
+            this.ClientSize = new System.Drawing.Size(1219, 519);
             this.Controls.Add(this.tcMainDste);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
@@ -319,7 +312,6 @@
             this.tpSettingsDste.PerformLayout();
             this.tbLightControlDste.ResumeLayout(false);
             this.ResumeLayout(false);
-
         }
 
         #endregion

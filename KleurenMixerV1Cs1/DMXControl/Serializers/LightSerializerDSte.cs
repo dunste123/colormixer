@@ -1,26 +1,32 @@
-﻿using DMXControl.Providers;
-using System;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Drawing;
+using System.Data;
 using System.Linq;
-using System.Reflection;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml;
-using System.Xml.Schema;
 using System.Xml.Serialization;
+using System.Xml;
+using System.Reflection;
+using System.Xml.Schema;
 
 namespace DMXControl.Serializers
 {
-    [TypeDescriptionProvider(typeof(LightSerializerDescriptionProvider<LightSerializerDSte, UserControl>))]
-    public abstract class LightSerializerDSte : UserControl, IXmlSerializable, ILightSerializer
+    public partial class LightSerializerDSte : UserControl, IXmlSerializable, ILightSerializer
     {
         private const BindingFlags BindingFlags = System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Instance;
 
         protected int _startAddress = 1;
 
         protected virtual void AfterReading() { }
-        
+
         //public abstract int[][] GetDmxValues();
-        public abstract int[] GetDmxValues();
+        public virtual int[] GetDmxValues()
+        {
+            throw new Exception("Must override 'abstract' method GetDmxValues");
+        }
 
         public virtual int[] GetDmxRange()
         {

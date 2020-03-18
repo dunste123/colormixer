@@ -54,21 +54,32 @@
     <Compile Include="DMXControl\ColorMixerV2.Designer.cs">
       <DependentUpon>ColorMixerV2.cs</DependentUpon>
     </Compile>
-    <Compile Include="DMXControl\Controls\UcLightTypes.cs" />
+    <Compile Include="DMXControl\Controls\UcLightTypes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="DMXControl\Controls\UcLightTypes.Designer.cs">
       <DependentUpon>UcLightTypes.cs</DependentUpon>
     </Compile>
-    <Compile Include="DMXControl\Controls\UcMovingHeadSliders.cs" />
+    <Compile Include="DMXControl\Controls\UcMovingHeadSliders.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="DMXControl\Controls\UcMovingHeadSliders.Designer.cs">
       <DependentUpon>UcMovingHeadSliders.cs</DependentUpon>
     </Compile>
-    <Compile Include="DMXControl\Controls\UcPar56Sliders.cs" />
+    <Compile Include="DMXControl\Controls\UcPar56Sliders.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="DMXControl\Controls\UcPar56Sliders.Designer.cs">
       <DependentUpon>UcPar56Sliders.cs</DependentUpon>
     </Compile>
     <Compile Include="DMXControl\Providers\LightSerializerDescriptionProvider.cs" />
     <Compile Include="DMXControl\Serializers\ILightSerializer.cs" />
-    <Compile Include="DMXControl\Serializers\LightSerializerDSte.cs" />
+    <Compile Include="DMXControl\Serializers\LightSerializerDSte.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DMXControl\Serializers\LightSerializerDSte.Designer.cs">
+      <DependentUpon>LightSerializerDSte.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
