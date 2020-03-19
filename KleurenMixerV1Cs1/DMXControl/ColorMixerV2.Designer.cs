@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.tcMainDste = new System.Windows.Forms.TabControl();
             this.tpSettingsDste = new System.Windows.Forms.TabPage();
+            this.TBStepperDSte = new System.Windows.Forms.TrackBar();
             this.CbAutoStepCounter = new System.Windows.Forms.ComboBox();
             this.autoStepperLblDSte = new System.Windows.Forms.Label();
             this.CbTimingDSte = new System.Windows.Forms.ComboBox();
@@ -55,6 +56,7 @@
             this.tmrShowStepperDSte = new System.Windows.Forms.Timer(this.components);
             this.tcMainDste.SuspendLayout();
             this.tpSettingsDste.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize) (this.TBStepperDSte)).BeginInit();
             this.tbLightControlDste.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,6 +72,7 @@
             // 
             // tpSettingsDste
             // 
+            this.tpSettingsDste.Controls.Add(this.TBStepperDSte);
             this.tpSettingsDste.Controls.Add(this.CbAutoStepCounter);
             this.tpSettingsDste.Controls.Add(this.autoStepperLblDSte);
             this.tpSettingsDste.Controls.Add(this.CbTimingDSte);
@@ -85,6 +88,17 @@
             this.tpSettingsDste.TabIndex = 0;
             this.tpSettingsDste.Text = "Settings";
             this.tpSettingsDste.UseVisualStyleBackColor = true;
+            // 
+            // TBStepperDSte
+            // 
+            this.TBStepperDSte.Location = new System.Drawing.Point(520, 163);
+            this.TBStepperDSte.Maximum = 40;
+            this.TBStepperDSte.Name = "TBStepperDSte";
+            this.TBStepperDSte.Size = new System.Drawing.Size(302, 45);
+            this.TBStepperDSte.TabIndex = 31;
+            this.TBStepperDSte.TabStop = false;
+            this.TBStepperDSte.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.TBStepperDSte.Scroll += new System.EventHandler(this.TBStepperDSte_Scroll);
             // 
             // CbAutoStepCounter
             // 
@@ -310,6 +324,7 @@
             this.tcMainDste.ResumeLayout(false);
             this.tpSettingsDste.ResumeLayout(false);
             this.tpSettingsDste.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize) (this.TBStepperDSte)).EndInit();
             this.tbLightControlDste.ResumeLayout(false);
             this.ResumeLayout(false);
         }
@@ -340,5 +355,6 @@
         private System.Windows.Forms.Button btnStopAutoDSte;
         private System.Windows.Forms.Button btnStartAutoDSte;
         private System.Windows.Forms.Button btnDupeStepDSte;
+        private System.Windows.Forms.TrackBar TBStepperDSte;
     }
 }

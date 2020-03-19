@@ -434,5 +434,13 @@ namespace DMXControl
             selected.BackColor = Color.GreenYellow;
         }
         #endregion
+
+        private void TBStepperDSte_Scroll(object sender, EventArgs e)
+        {
+            var stepper = this.TBStepperDSte;
+            
+            // range is 0 - 40 on the slider
+            Console.WriteLine(stepper.Value / 10F);
+        }
     }
 }

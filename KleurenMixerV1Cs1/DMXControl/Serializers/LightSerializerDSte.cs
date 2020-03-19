@@ -18,6 +18,11 @@ namespace DMXControl.Serializers
         {
             this._startAddress = startAddress;
         }
+        
+        public LightSerializerDSte()
+        {
+            InitializeComponent();
+        }
 
         protected virtual void AfterReading() { }
 
@@ -26,7 +31,7 @@ namespace DMXControl.Serializers
 
         public virtual int[] GetDmxValues()
         {
-            throw new Exception("Must override 'abstract' method GetDmxValues");
+            throw new System.NotImplementedException("Must override 'abstract' method GetDmxValues");
         }
 
         public virtual int[] GetDmxRange()
