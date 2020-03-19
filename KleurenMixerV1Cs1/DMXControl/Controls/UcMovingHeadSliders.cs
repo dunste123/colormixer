@@ -1,25 +1,16 @@
 ﻿using DMXControl.Serializers;
 using System;
 
-/**
+/*
  * https://www.bax-shop.nl/downloads/products/9000-0004-8917/ayra_ero_540_led_rgb_movinghead_manual.pdf
  */
 namespace DMXControl.Controls
 {
     public partial class UcMovingHeadSliders : LightSerializerDSte
     {
-        public UcMovingHeadSliders()
+        public UcMovingHeadSliders(int startAddress) : base(startAddress)
         {
             InitializeComponent();
-        }
-
-        public override int[] GetDmxRange()
-        {
-            return new[]
-            {
-                this._startAddress,
-                this._startAddress + 6
-            };
         }
 
         public override int[] GetDmxValues()

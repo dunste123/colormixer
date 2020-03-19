@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Serialization;
 using System.Xml;
@@ -18,11 +12,18 @@ namespace DMXControl.Serializers
     {
         private const BindingFlags BindingFlags = System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Instance;
 
-        protected int _startAddress = 1;
+        protected int _startAddress;
+
+        public LightSerializerDSte(int startAddress)
+        {
+            this._startAddress = startAddress;
+        }
 
         protected virtual void AfterReading() { }
 
         //public abstract int[][] GetDmxValues();
+        //public abstract int[] GetDmxValues();
+
         public virtual int[] GetDmxValues()
         {
             throw new Exception("Must override 'abstract' method GetDmxValues");

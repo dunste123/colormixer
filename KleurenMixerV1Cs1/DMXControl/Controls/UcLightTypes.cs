@@ -1,6 +1,4 @@
-﻿using DMXControl.Providers;
-using System;
-using System.ComponentModel;
+﻿using System;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -61,7 +59,7 @@ namespace DMXControl.Controls
         {
             if (Par56SlidersDSte == null)
             {
-                Par56SlidersDSte = new UcPar56Sliders();
+                Par56SlidersDSte = new UcPar56Sliders(1);
                 Par56SlidersEnabledDSte = true;
             }
 
@@ -78,7 +76,7 @@ namespace DMXControl.Controls
         {
             if (MovingHeadSlidersDSte == null)
             {
-                MovingHeadSlidersDSte = new UcMovingHeadSliders();
+                MovingHeadSlidersDSte = new UcMovingHeadSliders(7);
                 MovingHeadSlidersEnabledDSte = true;
             }
 

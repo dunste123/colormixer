@@ -2,14 +2,14 @@
 using System.Drawing;
 using DMXControl.Serializers;
 
-/**
+/*
  * https://manuals.coolblue.nl/a1/showtec-led-par-56-short-eco.pdf
  */
 namespace DMXControl.Controls
 {
     public partial class UcPar56Sliders : LightSerializerDSte
     {
-        public UcPar56Sliders()
+        public UcPar56Sliders(int startAddress) : base(startAddress)
         {
             InitializeComponent();
         }

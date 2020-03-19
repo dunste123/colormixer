@@ -72,7 +72,6 @@
     <Compile Include="DMXControl\Controls\UcPar56Sliders.Designer.cs">
       <DependentUpon>UcPar56Sliders.cs</DependentUpon>
     </Compile>
-    <Compile Include="DMXControl\Providers\LightSerializerDescriptionProvider.cs" />
     <Compile Include="DMXControl\Serializers\ILightSerializer.cs" />
     <Compile Include="DMXControl\Serializers\LightSerializerDSte.cs">
       <SubType>UserControl</SubType>

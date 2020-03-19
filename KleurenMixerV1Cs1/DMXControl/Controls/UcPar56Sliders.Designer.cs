@@ -22,8 +22,8 @@
 
         #region Component Designer generated code
 
-        /// <summary> 
-        /// Required method for Designer support - do not modify 
+        /// <summary>
+        /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
@@ -39,15 +39,12 @@
             this.trbStrobeDste = new System.Windows.Forms.TrackBar();
             this.btnResetDSte = new System.Windows.Forms.Button();
             this.lblStatusDSte = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.trbRedDste)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trbGreenDste)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trbBlueDste)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbOutputColorDste)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trbStrobeDste)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize) (this.trbRedDste)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize) (this.trbGreenDste)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize) (this.trbBlueDste)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize) (this.pbOutputColorDste)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize) (this.trbStrobeDste)).BeginInit();
             this.SuspendLayout();
-            // 
-            // trbRedDste
-            // 
             this.trbRedDste.Location = new System.Drawing.Point(53, 10);
             this.trbRedDste.Maximum = 255;
             this.trbRedDste.Name = "trbRedDste";
@@ -55,18 +52,12 @@
             this.trbRedDste.TabIndex = 0;
             this.trbRedDste.TickStyle = System.Windows.Forms.TickStyle.None;
             this.trbRedDste.Scroll += new System.EventHandler(this.TrackBarScroll);
-            // 
-            // lblRedDste
-            // 
             this.lblRedDste.AutoSize = true;
             this.lblRedDste.Location = new System.Drawing.Point(20, 15);
             this.lblRedDste.Name = "lblRedDste";
             this.lblRedDste.Size = new System.Drawing.Size(27, 13);
             this.lblRedDste.TabIndex = 1;
             this.lblRedDste.Text = "Red";
-            // 
-            // trbGreenDste
-            // 
             this.trbGreenDste.Location = new System.Drawing.Point(53, 61);
             this.trbGreenDste.Maximum = 255;
             this.trbGreenDste.Name = "trbGreenDste";
@@ -74,27 +65,18 @@
             this.trbGreenDste.TabIndex = 0;
             this.trbGreenDste.TickStyle = System.Windows.Forms.TickStyle.None;
             this.trbGreenDste.Scroll += new System.EventHandler(this.TrackBarScroll);
-            // 
-            // lblGreenDste
-            // 
             this.lblGreenDste.AutoSize = true;
             this.lblGreenDste.Location = new System.Drawing.Point(12, 66);
             this.lblGreenDste.Name = "lblGreenDste";
             this.lblGreenDste.Size = new System.Drawing.Size(36, 13);
             this.lblGreenDste.TabIndex = 1;
             this.lblGreenDste.Text = "Green";
-            // 
-            // lblBlueDste
-            // 
             this.lblBlueDste.AutoSize = true;
             this.lblBlueDste.Location = new System.Drawing.Point(12, 117);
             this.lblBlueDste.Name = "lblBlueDste";
             this.lblBlueDste.Size = new System.Drawing.Size(28, 13);
             this.lblBlueDste.TabIndex = 3;
             this.lblBlueDste.Text = "Blue";
-            // 
-            // trbBlueDste
-            // 
             this.trbBlueDste.Location = new System.Drawing.Point(53, 112);
             this.trbBlueDste.Maximum = 255;
             this.trbBlueDste.Name = "trbBlueDste";
@@ -102,9 +84,6 @@
             this.trbBlueDste.TabIndex = 2;
             this.trbBlueDste.TickStyle = System.Windows.Forms.TickStyle.None;
             this.trbBlueDste.Scroll += new System.EventHandler(this.TrackBarScroll);
-            // 
-            // pbOutputColorDste
-            // 
             this.pbOutputColorDste.BackColor = System.Drawing.Color.Black;
             this.pbOutputColorDste.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbOutputColorDste.Location = new System.Drawing.Point(297, 10);
@@ -112,27 +91,18 @@
             this.pbOutputColorDste.Size = new System.Drawing.Size(92, 147);
             this.pbOutputColorDste.TabIndex = 10;
             this.pbOutputColorDste.TabStop = false;
-            // 
-            // lblStrobeDste
-            // 
             this.lblStrobeDste.AutoSize = true;
             this.lblStrobeDste.Location = new System.Drawing.Point(12, 181);
             this.lblStrobeDste.Name = "lblStrobeDste";
             this.lblStrobeDste.Size = new System.Drawing.Size(38, 13);
             this.lblStrobeDste.TabIndex = 12;
             this.lblStrobeDste.Text = "Strobe";
-            // 
-            // trbStrobeDste
-            // 
             this.trbStrobeDste.Location = new System.Drawing.Point(53, 176);
             this.trbStrobeDste.Maximum = 255;
             this.trbStrobeDste.Name = "trbStrobeDste";
             this.trbStrobeDste.Size = new System.Drawing.Size(228, 45);
             this.trbStrobeDste.TabIndex = 11;
             this.trbStrobeDste.TickStyle = System.Windows.Forms.TickStyle.Both;
-            // 
-            // btnResetDSte
-            // 
             this.btnResetDSte.Location = new System.Drawing.Point(297, 163);
             this.btnResetDSte.Name = "btnResetDSte";
             this.btnResetDSte.Size = new System.Drawing.Size(92, 58);
@@ -140,18 +110,12 @@
             this.btnResetDSte.Text = "Reset";
             this.btnResetDSte.UseVisualStyleBackColor = true;
             this.btnResetDSte.Click += new System.EventHandler(this.BtnResetDSte_Click);
-            // 
-            // lblStatusDSte
-            // 
             this.lblStatusDSte.AutoSize = true;
             this.lblStatusDSte.Location = new System.Drawing.Point(12, 247);
             this.lblStatusDSte.Name = "lblStatusDSte";
             this.lblStatusDSte.Size = new System.Drawing.Size(146, 13);
             this.lblStatusDSte.TabIndex = 15;
             this.lblStatusDSte.Text = "idk what this status should do";
-            // 
-            // UcPar56Sliders
-            // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.lblStatusDSte);
@@ -174,7 +138,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.trbStrobeDste)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion

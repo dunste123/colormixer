@@ -66,7 +66,7 @@ namespace DMXControl
 
             if (type.Par56SlidersDSte != null)
             {
-                var newPar = new UcPar56Sliders
+                var newPar = new UcPar56Sliders(1)
                 {
                     Shown = false,
                     RedDMXValue = type.Par56SlidersDSte.RedDMXValue,
@@ -83,7 +83,7 @@ namespace DMXControl
 
             if (type.MovingHeadSlidersDSte != null)
             {
-                var newHead = new UcMovingHeadSliders
+                var newHead = new UcMovingHeadSliders(7)
                 {
                     Shown = false,
                     XAxisDMXValue = type.MovingHeadSlidersDSte.XAxisDMXValue,
@@ -283,6 +283,7 @@ namespace DMXControl
             CbTimingDSte.Text = CBoxTimerDSte.Interval + "";
         }
 
+        // TODO: Make slider?
         private void CbAutoStepCounter_SelectedIndexChanged(object sender, EventArgs e)
         {
             var text = CbAutoStepCounter.Text.ToLower();

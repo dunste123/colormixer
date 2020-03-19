@@ -22,8 +22,8 @@
 
         #region Component Designer generated code
 
-        /// <summary> 
-        /// Required method for Designer support - do not modify 
+        /// <summary>
+        /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
@@ -41,9 +41,9 @@
             // 
             // btnPar56Dste
             // 
-            this.btnPar56Dste.Location = new System.Drawing.Point(36, 3);
+            this.btnPar56Dste.Location = new System.Drawing.Point(42, 3);
             this.btnPar56Dste.Name = "btnPar56Dste";
-            this.btnPar56Dste.Size = new System.Drawing.Size(75, 56);
+            this.btnPar56Dste.Size = new System.Drawing.Size(87, 65);
             this.btnPar56Dste.TabIndex = 0;
             this.btnPar56Dste.Text = "Par56";
             this.btnPar56Dste.UseVisualStyleBackColor = true;
@@ -52,7 +52,7 @@
             // CbPar56Dste
             // 
             this.CbPar56Dste.AutoSize = true;
-            this.CbPar56Dste.Location = new System.Drawing.Point(118, 24);
+            this.CbPar56Dste.Location = new System.Drawing.Point(138, 28);
             this.CbPar56Dste.Name = "CbPar56Dste";
             this.CbPar56Dste.Size = new System.Drawing.Size(15, 14);
             this.CbPar56Dste.TabIndex = 1;
@@ -60,9 +60,9 @@
             // 
             // btnMovingHeadDSte
             // 
-            this.btnMovingHeadDSte.Location = new System.Drawing.Point(139, 3);
+            this.btnMovingHeadDSte.Location = new System.Drawing.Point(162, 3);
             this.btnMovingHeadDSte.Name = "btnMovingHeadDSte";
-            this.btnMovingHeadDSte.Size = new System.Drawing.Size(75, 56);
+            this.btnMovingHeadDSte.Size = new System.Drawing.Size(87, 65);
             this.btnMovingHeadDSte.TabIndex = 0;
             this.btnMovingHeadDSte.Text = "Moving Head";
             this.btnMovingHeadDSte.UseVisualStyleBackColor = true;
@@ -71,7 +71,7 @@
             // CbMovingHeadDste
             // 
             this.CbMovingHeadDste.AutoSize = true;
-            this.CbMovingHeadDste.Location = new System.Drawing.Point(221, 24);
+            this.CbMovingHeadDste.Location = new System.Drawing.Point(258, 28);
             this.CbMovingHeadDste.Name = "CbMovingHeadDste";
             this.CbMovingHeadDste.Size = new System.Drawing.Size(15, 14);
             this.CbMovingHeadDste.TabIndex = 1;
@@ -79,9 +79,9 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(242, 3);
+            this.button2.Location = new System.Drawing.Point(282, 3);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 56);
+            this.button2.Size = new System.Drawing.Size(87, 65);
             this.button2.TabIndex = 0;
             this.button2.Text = "Test";
             this.button2.UseVisualStyleBackColor = true;
@@ -89,7 +89,7 @@
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(324, 24);
+            this.checkBox2.Location = new System.Drawing.Point(378, 28);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(15, 14);
             this.checkBox2.TabIndex = 1;
@@ -97,9 +97,9 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(345, 3);
+            this.button3.Location = new System.Drawing.Point(402, 3);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 56);
+            this.button3.Size = new System.Drawing.Size(87, 65);
             this.button3.TabIndex = 0;
             this.button3.Text = "Test";
             this.button3.UseVisualStyleBackColor = true;
@@ -107,7 +107,7 @@
             // checkBox3
             // 
             this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(427, 24);
+            this.checkBox3.Location = new System.Drawing.Point(498, 28);
             this.checkBox3.Name = "checkBox3";
             this.checkBox3.Size = new System.Drawing.Size(15, 14);
             this.checkBox3.TabIndex = 1;
@@ -116,15 +116,15 @@
             // lblIndexDste
             // 
             this.lblIndexDste.AutoSize = true;
-            this.lblIndexDste.Location = new System.Drawing.Point(9, 24);
+            this.lblIndexDste.Location = new System.Drawing.Point(10, 28);
             this.lblIndexDste.Name = "lblIndexDste";
-            this.lblIndexDste.Size = new System.Drawing.Size(13, 13);
+            this.lblIndexDste.Size = new System.Drawing.Size(13, 15);
             this.lblIndexDste.TabIndex = 2;
             this.lblIndexDste.Text = "0";
             // 
             // UcLightTypes
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.lblIndexDste);
             this.Controls.Add(this.checkBox3);
@@ -136,10 +136,9 @@
             this.Controls.Add(this.btnMovingHeadDSte);
             this.Controls.Add(this.btnPar56Dste);
             this.Name = "UcLightTypes";
-            this.Size = new System.Drawing.Size(448, 64);
+            this.Size = new System.Drawing.Size(523, 74);
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion
